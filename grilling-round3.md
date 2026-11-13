@@ -126,7 +126,7 @@ Và lý do của Cao Minh không phải "cho tiện" mà là **quyền riêng t�
 - **B** thể hiện: lớp ① nguồn sự thật + nhánh "tài liệu có thể sai" + lỗi sửa câu chữ không cứu được (phát hiện ở trên). Đây là ca **khó nhất về thiết kế**, và là ca ăn điểm R3.
 - Có 2 tab thì lúc demo TA đưa ca lạ, nhóm có nhiều đường hơn để chỉ "thiết kế của tôi xử lý ca này thế nào".
 
-**Ý kiến — Phạm Hoàng Đức Minh:**
+**Ý kiến — Phạm Hoàng Đức Minh:** đồng ý
 
 **Ý kiến — Nguyễn Cao Minh:**
 
