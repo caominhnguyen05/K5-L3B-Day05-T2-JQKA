@@ -1,0 +1,32 @@
+.connection{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px;font-size:12px;color:var(--ink-2)}
+.connection .status{background:var(--line-2);border:1px solid var(--line);border-radius:20px;padding:4px 10px}
+.connection .status.ready{background:var(--ok-soft);color:var(--ok)}
+.connection .status.error{background:var(--warn-soft);color:var(--warn)}
+.chat-body{min-height:400px;max-height:62vh;scroll-behavior:smooth}
+.chat-body:empty::after{content:'Gõ câu hỏi bên dưới hoặc chọn ca A/B ở cột phải để trò chuyện với DeepSeek.'}
+.composer{border-top:1px solid var(--line);padding:14px 16px}
+.composer textarea,.confirm textarea{width:100%;resize:vertical;min-height:80px;border:1px solid var(--line);border-radius:7px;padding:10px;font:inherit;font-size:14px;color:var(--ink);background:white}
+.composer textarea:focus,.confirm textarea:focus{outline:2px solid var(--accent);outline-offset:2px}
+.composer .actions{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:8px}
+.composer small{color:var(--ink-3);font-size:11px}
+.message-text{white-space:pre-wrap;overflow-wrap:anywhere}
+.citations{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.citations button{font-size:12px;color:var(--accent);padding:3px 8px}
+.message-meta{font-size:10.5px;color:var(--ink-3);margin-top:8px}
+.error-box{color:#8a2f4a;background:var(--lock-soft);padding:10px 14px;border-radius:7px;margin:10px 0}
+.confirm label{display:block;font-weight:600;font-size:13px;margin-bottom:6px}
+.confirm .consent{display:flex;gap:8px;font-weight:400;align-items:flex-start;margin-top:10px}
+.confirm .consent input{margin-top:5px}
+.confirm .consent span{font-size:12px}
+.confirm .meta{margin-top:8px}
+.source-dialog{max-width:640px;width:calc(100% - 32px);border:1px solid var(--line);border-radius:12px;padding:24px;box-shadow:0 20px 80px #15181d33}
+.source-dialog::backdrop{background:#15181d66}
+.source-dialog h2{font-size:18px;margin:0 0 12px}
+.source-dialog p{white-space:pre-wrap;font-size:14px}
+.source-dialog small{color:var(--ink-3)}
+.source-dialog .warn{background:var(--warn-soft);padding:12px;border-radius:6px;color:var(--warn)}
+.queue-tickets{list-style:none;padding:0;margin:12px 0 0;font-size:12px;max-height:180px;overflow:auto}
+.queue-tickets li{padding:7px 0;border-top:1px solid var(--line-2);overflow-wrap:anywhere}
+.pending{font-style:italic;color:var(--ink-3)}
+.n{vertical-align:middle}
+@media(max-width:600px){.wrap{padding:16px 10px}.bubble{max-width:96%}.composer .actions{align-items:flex-start}.chat-body{min-height:300px;max-height:55vh}.connection{gap:6px}}
