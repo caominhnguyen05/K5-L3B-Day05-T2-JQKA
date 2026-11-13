@@ -42,7 +42,7 @@ Kết quả bình chọn: **1, 2, 4** được 3/4 phiếu (Cao Minh, Đức Min
 
 **Bình chọn lại — Nguyễn Cao Minh:**
 
-**Bình chọn lại — MinhTDN:**
+**Bình chọn lại — MinhTDN:** 1 · 2 · 4
 
 **Bình chọn lại — Nguyễn Văn Minh (TV4):** 1 · 2 · 4 (rút phiếu cũ, đồng ý với nhóm — lý do ở trên)
 
@@ -75,7 +75,7 @@ Như vậy MinhTDN được thỏa về **cái giá** (bước nguy hiểm bị 
 
 **Bình chọn — Nguyễn Cao Minh:**
 
-**Bình chọn — MinhTDN:**
+**Bình chọn — MinhTDN:** Đồng ý
 
 **Bình chọn — Nguyễn Văn Minh (TV4):** Đồng ý tách bước như bảng trên.
 
@@ -104,7 +104,7 @@ Và lý do của Cao Minh không phải "cho tiện" mà là **quyền riêng t�
 
 **Bình chọn — Nguyễn Cao Minh:**
 
-**Bình chọn — MinhTDN:**
+**Bình chọn — MinhTDN:** Đồng ý
 
 **Bình chọn — Nguyễn Văn Minh (TV4):** Đổi sang **cần người duyệt (học viên bấm)** — Cao Minh đúng, mình đã hiểu sai định nghĩa "cần người duyệt".
 
@@ -130,7 +130,7 @@ Và lý do của Cao Minh không phải "cho tiện" mà là **quyền riêng t�
 
 **Ý kiến — Nguyễn Cao Minh:**
 
-**Ý kiến — MinhTDN:**
+**Ý kiến — MinhTDN:** Đồng ý
 
 **Ý kiến — Nguyễn Văn Minh (TV4):** Đồng ý làm cả A và B; A mở màn, B là ca ăn điểm.
 
