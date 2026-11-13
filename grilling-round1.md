@@ -77,7 +77,7 @@ Ba vai cần người ngay từ đầu (xem README, không bắt buộc đúng t
 
 **Trả lời (ai nhận vai nào, tại sao mình phù hợp):**
 - Phạm Hoàng Đức Minh : Viết câu chữ AI
-- TV2:
+- Trần Đình Nhật Minh: bảng kịch bản §2
 - TV3:
 - Nguyễn Văn Minh (TV4): **dựng prototype.** Lý do: mình làm việc thường xuyên với coding agent (pi), đã có sẵn quy trình dựng prototype HTML tự chứa bấm được (guided walkthrough cho ca khó + free-play cho ca lạ) — ngày lab chỉ cần đổ nội dung nhóm chốt vào. Cam kết: mỗi chỗ trên prototype mình đều giải thích được vì sao nó ở đó (vibe-coding rule).
 
@@ -113,7 +113,7 @@ Từng thử app/chatbot học tập nào chưa (DeepTutor, ChatGPT thường, K
 
 **Ví dụ từ Day 02 của một thành viên nhóm:** đã dùng DeepTutor khi tự học sách kỹ thuật Toán-heavy → bỏ vì **"không có bài giảng thật"** — app giải thích chung chung, không bám đúng tài liệu đang học. Và câu phản biện từng nhận: *"chatbot đã đủ để tóm tắt tài liệu rồi, tại sao vấn đề vẫn hiện hữu?"* — chính là câu T2 phải trả lời: ChatGPT thường không có căn cứ vào tài liệu buổi học, không biết nói "tài liệu không có", và không có TA để chuyển.
 
-**Trả lời — [tên TV1]:**
+**Trả lời — [tên TV1]:** Đã dùng NotebookLM và Chatgpt study mode NotebookLM: Có thể tóm tắt, giải thích và trả lời dựa trên tài liệu được tải lên, kèm trích dẫn nguồn. Tuy nhiên, người dùng phải tự tải lên và quản lý tài liệu, chưa tích hợp trực tiếp với hệ thống khóa học.ChatGPT Study Mode: Có thể hướng dẫn từng bước, đặt câu hỏi và kiểm tra mức độ hiểu bài. Tuy nhiên, câu trả lời vẫn có thể sai hoặc chưa bám sát hoàn toàn nội dung tài liệu chính thức.
 
 **Trả lời — [tên TV2]:**
 
