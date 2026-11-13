@@ -76,7 +76,7 @@ Ba vai cần người ngay từ đầu (xem README, không bắt buộc đúng t
 ⚠️ Vibe-coding rule: **ai không giải thích được phần có tên mình → 0 điểm R7.**
 
 **Trả lời (ai nhận vai nào, tại sao mình phù hợp):**
-- Phạm Hoàng Đức Minh : dựng prototype
+- Phạm Hoàng Đức Minh : Viết câu chữ AI
 - TV2:
 - TV3:
 - Nguyễn Văn Minh (TV4): **dựng prototype.** Lý do: mình làm việc thường xuyên với coding agent (pi), đã có sẵn quy trình dựng prototype HTML tự chứa bấm được (guided walkthrough cho ca khó + free-play cho ca lạ) — ngày lab chỉ cần đổ nội dung nhóm chốt vào. Cam kết: mỗi chỗ trên prototype mình đều giải thích được vì sao nó ở đó (vibe-coding rule).
