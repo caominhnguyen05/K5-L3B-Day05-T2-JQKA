@@ -105,14 +105,14 @@ Nghĩa là: học viên thử bằng dữ liệu bài tập thì **câu sai trô
 > Trong lúc chờ, em có muốn mình giảng phần **chắc chắn đúng** là §3.2 (trung vị) không?
 
 **Người dùng thấy gì ngoài câu chữ:**
-- Nhãn **"Trợ lý AI"** cố định trên khung chat (Luật TTNT 134/2025/QH15, Điều 11 khoản 1 — hiệu lực 01/03/2026)
+- Nhãn **"Trợ lý AI"** cố định trên khung chat
 - Thanh độ chắc ở mức **thấp** + chữ "Mình không chắc" (G2)
 - Badge **⚠ Tài liệu có thể sai** ngay trên khối trích dẫn §3.3
 - Khối **"Vì sao mình nói câu này cần xem lại"** bấm mở được: phản ví dụ 0 và 1 (G11)
 - Hai nút: **[Báo giảng viên]** · **[Hỏi TA về câu này]**
 - Nút **[Xem nguyên văn §3.3]** mở đúng đoạn tài liệu để học viên tự đọc
 
-**Bước tiếp theo của người dùng:** bấm [Báo giảng viên] (1 cú bấm, không phải gõ gì) · hoặc [Hỏi TA] (đi qua `chuyen_TA`, học viên xác nhận nội dung gửi) · hoặc bấm "có" để học §3.2.
+**Bước tiếp theo của người dùng:** bấm [Báo giảng viên] · hoặc [Hỏi TA] (đi qua `chuyen_TA`, học viên xác nhận nội dung gửi) · hoặc bấm "có" để học §3.2.
 
 **Nếu họ không làm gì:** màn hình vẫn giữ badge cảnh báo; câu trả lời **không bao giờ** bị đổi thành khẳng định "độ lệch chuẩn luôn nhỏ hơn phương sai". Không có auto-escalate (tự gửi báo cáo) — vì báo giảng viên là hành động của học viên, và tự gửi là quyết định thay họ.
 
