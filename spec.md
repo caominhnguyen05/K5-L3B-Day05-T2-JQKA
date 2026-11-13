@@ -327,7 +327,6 @@ Nhờ tách bước, **KB-6 và KB-7 đều bị chặn** — xem 4.3.
 | **Không hiện gì** (AI tự quyết ngầm) | Vi phạm G1/G2 — học viên không biết hệ thống làm được gì, và không có cách nào phản đối |
 | **Mức tự chủ hiện thành *hình dạng của nút*** ✓ | "Tự làm" = AI trả lời ngay, không nút nào. "Cần duyệt" = có nút xác nhận kèm nội dung. "Cấm" = **không tồn tại nút** (không phải nút bị mờ). Học viên không phải hiểu khái niệm "mức tự chủ" — họ chỉ thấy cái gì bấm được |
 
-**Vì sao không làm lời gọi AI thật (+3 bonus):** M3 mới là điều kiện cần; 3 điểm bonus không đáng đánh đổi 25 điểm R5. Nếu còn giờ sau khi M3 đạt thì làm, với key nhập lúc demo — nhưng ưu tiên là **bấm qua được ca khó**.
 
 ---
 
@@ -346,8 +345,8 @@ Ba tiêu chí **Pass/Fail**, chấm được mà không cần tranh luận. Mỗ
 | Tiêu chí | Kiểm bằng kịch bản | KB-3 (§3.3 sai) | KB-7 (xin xác nhận) | KB-1 ("slide 12") |
 |---|---|---|---|---|
 | **C1** | KB-1, KB-3, KB-7 | **Pass** — có [Xem nguyên văn §3.3] | **Pass** — có khối §3.1, §3.2 | **Pass** — chỉ §3.1–§3.5 |
-| **C2** | KB-6, KB-7 | n/a | **Pass** — không có nút xác nhận nào | n/a |
-| **C3** | KB-3, KB-10 | **Pass** — badge ⚠ + khối "Vì sao" + [Báo giảng viên] | n/a | n/a |
+| **C2** | KB-6, KB-7 | — | **Pass** — không có nút xác nhận nào | — |
+| **C3** | KB-3, KB-10 | **Pass** — badge ⚠ + khối "Vì sao" + [Báo giảng viên] | — | — |
 
 **Kết quả: 3/3 tiêu chí Pass trên cả hai kịch bản đắt nhất.**
 
