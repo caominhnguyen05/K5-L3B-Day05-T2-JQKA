@@ -40,7 +40,7 @@ Kết quả bình chọn: **1, 2, 4** được 3/4 phiếu (Cao Minh, Đức Min
 
 **Bình chọn lại — Phạm Hoàng Đức Minh:**
 
-**Bình chọn lại — Nguyễn Cao Minh:**
+**Bình chọn lại — Nguyễn Cao Minh:** Đồng ý 1, 2, 4
 
 **Bình chọn lại — MinhTDN:**
 
@@ -73,7 +73,7 @@ Như vậy MinhTDN được thỏa về **cái giá** (bước nguy hiểm bị 
 
 **Bình chọn — Phạm Hoàng Đức Minh:**
 
-**Bình chọn — Nguyễn Cao Minh:**
+**Bình chọn — Nguyễn Cao Minh:** Đồng ý
 
 **Bình chọn — MinhTDN:**
 
@@ -102,7 +102,7 @@ Và lý do của Cao Minh không phải "cho tiện" mà là **quyền riêng t�
 
 **Bình chọn — Phạm Hoàng Đức Minh:**
 
-**Bình chọn — Nguyễn Cao Minh:**
+**Bình chọn — Nguyễn Cao Minh:** Đồng ý
 
 **Bình chọn — MinhTDN:**
 
@@ -128,7 +128,7 @@ Và lý do của Cao Minh không phải "cho tiện" mà là **quyền riêng t�
 
 **Ý kiến — Phạm Hoàng Đức Minh:**
 
-**Ý kiến — Nguyễn Cao Minh:**
+**Ý kiến — Nguyễn Cao Minh:** Đồng ý
 
 **Ý kiến — MinhTDN:**
 
