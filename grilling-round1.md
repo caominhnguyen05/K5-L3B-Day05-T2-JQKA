@@ -113,7 +113,10 @@ Từng thử app/chatbot học tập nào chưa (DeepTutor, ChatGPT thường, K
 
 **Ví dụ từ Day 02 của một thành viên nhóm:** đã dùng DeepTutor khi tự học sách kỹ thuật Toán-heavy → bỏ vì **"không có bài giảng thật"** — app giải thích chung chung, không bám đúng tài liệu đang học. Và câu phản biện từng nhận: *"chatbot đã đủ để tóm tắt tài liệu rồi, tại sao vấn đề vẫn hiện hữu?"* — chính là câu T2 phải trả lời: ChatGPT thường không có căn cứ vào tài liệu buổi học, không biết nói "tài liệu không có", và không có TA để chuyển.
 
-**Trả lời — [tên TV1]:**
+**Trả lời — [Phạm Hoàng Đức Minh]:** Mình nghĩ tới **NotebookLM**: trả lời dựa trên nguồn mình tải lên và có trích dẫn kèm theo, nên đã khắc phục được lỗi "chung chung, không bám tài liệu" của ChatGPT thường. Nhưng vẫn không cứu được lát cắt của nhóm vì:
+- **Học viên phải tự tải tài liệu lên và tự dựng notebook** cho từng môn/buổi. Lúc 10h tối đang kẹt bài thì đây là thêm việc, không bớt việc. NotebookLM cũng không biết đây là buổi 1–3 của lớp nào, buổi 4–10 chưa học.
+- **Không có đường chuyển người thật.** Khi tài liệu không có câu trả lời, nó không có bước "tài liệu không có, hỏi giảng viên/TA" và không có nút `chuyen_TA` hay giờ TA. Học viên vẫn tự xoay xở một mình.
+**Bài học cho thiết kế:** giữ điểm mạnh của NotebookLM là *trả lời bám nguồn + trích mục* nhưng bổ sung 3 thứ nó thiếu: (1) tài liệu **có sẵn theo lớp**, học viên không phải tải lên; (2) nói thẳng **"tài liệu không có, hỏi giảng viên"** và chuyển TA đúng giờ. Phản biện "chatbot/NotebookLM đã đủ rồi" → trả lời: nó trả lời được *khi đã có tài liệu đúng*, còn chỗ học viên kẹt là *khi tài liệu không có hoặc không được phép trả lời*.
 
 **Trả lời — [tên TV2]:**
 
