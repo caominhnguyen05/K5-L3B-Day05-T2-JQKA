@@ -71,7 +71,7 @@ Kết quả bình chọn: **1, 2, 4** được 3/4 phiếu (Cao Minh, Đức Min
 
 Như vậy MinhTDN được thỏa về **cái giá** (bước nguy hiểm bị chặn), ba người kia được thỏa về **thời điểm** (không phải chờ ai lúc 10h tối). Và nhóm có một câu trả lời cho "tool tách bước" mà rubric R4 thưởng điểm.
 
-**Bình chọn — Phạm Hoàng Đức Minh:**
+**Bình chọn — Phạm Hoàng Đức Minh:** đồng ý
 
 **Bình chọn — Nguyễn Cao Minh:**
 
@@ -100,7 +100,7 @@ Và lý do của Cao Minh không phải "cho tiện" mà là **quyền riêng t�
 
 **Đề nghị chốt: `chuyen_TA` = cần người duyệt (học viên bấm xác nhận).** AI soạn sẵn câu chuyển + hiện rõ **nội dung nào sẽ gửi cho TA** + giờ TA trả lời, học viên bấm một lần. Đây là chỗ Cao Minh đúng và 3 người kia cần đổi.
 
-**Bình chọn — Phạm Hoàng Đức Minh:**
+**Bình chọn — Phạm Hoàng Đức Minh:** đồng ý 
 
 **Bình chọn — Nguyễn Cao Minh:**
 
