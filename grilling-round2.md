@@ -135,7 +135,7 @@ Demo bắt buộc của track: bấm qua một ca **"bài đang mở hoặc tài
 
 **Ý kiến — TV2:**
 
-**Ý kiến — MinhTDN:**
+**Ý kiến — MinhTDN:** ca B 
 
 ---
 
