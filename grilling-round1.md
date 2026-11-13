@@ -18,7 +18,7 @@ Nói **một câu**: ai đang làm gì, AI phải quyết gì, sai thì ai chị
 
 **Trả lời — [tên TV2]:**
 
-**Trả lời — [tên TV3]:**
+**Trả lời — [MinhTDN]:** Trong trang quản lý khóa học, khi giảng viên cần tra cứu hoặc kiểm chứng một kiến thức, AI tìm kiếm trong tài liệu khóa học, tổng hợp câu trả lời kèm trích dẫn chính xác đến buổi học, mục và trang. Nếu không tìm thấy căn cứ hoặc tài liệu có thông tin mâu thuẫn, AI báo "không có tài liệu" để giảng viên tự xác minh, không tự suy diễn. Sai thì giảng viên sẽ chuẩn bị kiến thức sai bài giảng, ảnh hưởng cả giảng viên lẫn học viên
 
 ---
 
@@ -32,7 +32,7 @@ Mỗi người đề xuất 3 việc + **một câu vì sao mỗi việc**.
 
 **Đề xuất — [tên TV2]:**
 
-**Đề xuất — [tên TV3]:**
+**Đề xuất — [MinhTDN]:** Đưa ra kết luận khi thiếu bằng chứng gây ra rối loạn dẫn đến sai cho giảng viên. Tự sửa tài liệu khiến kiến thức bị thay đổi mất kiểm soát. Tự nạp thêm thông tin từ internet, kiến thức bị mở rộng không cần thiết
 
 **Chốt của nhóm (điền sau khi cả 3 đề xuất):**
 
