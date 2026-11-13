@@ -3,8 +3,8 @@
 | Họ và Tên | Mã Học Viên | Việc đã làm |
 |---|---|---|
 | Phạm Hoàng Đức Minh | | Câu chữ AI (§3) — viết câu nguyên văn cho 2 kịch bản đắt nhất |
-| Nguyễn Cao Minh | 2A202604099 | Bảng kịch bản rủi ro (§2) + chuẩn bị kịch bản demo |
-| MinhTDN | | Bảng kịch bản rủi ro (§2) + phụ demo |
+| Nguyễn Cao Minh | | Bảng kịch bản rủi ro (§2) + chuẩn bị kịch bản demo |
+| Trần Đình Nhật Minh |2A202604083| Bảng kịch bản rủi ro (§2) + phụ demo |
 | Nguyễn Văn Minh | 2A202604117 | Prototype (§5) — dựng 1 file HTML bấm được, 2 tab ca khó |
 
 ---
@@ -85,14 +85,14 @@ Nhãn mức hại: **nhẹ** (tự thấy, tự sửa) · **sửa được** (t�
 > Trong lúc chờ, em có muốn mình giảng phần **chắc chắn đúng** là §3.2 (trung vị) không?
 
 **Người dùng thấy gì ngoài câu chữ:**
-- Nhãn **"Trợ lý AI"** cố định trên khung chat (Luật TTNT 134/2025/QH15, Điều 11 khoản 1 — hiệu lực 01/03/2026)
+- Nhãn **"Trợ lý AI"** cố định trên khung chat
 - Thanh độ chắc ở mức **thấp** + chữ "Mình không chắc" (G2)
 - Badge **⚠ Tài liệu có thể sai** ngay trên khối trích dẫn §3.3
 - Khối **"Vì sao mình nói câu này cần xem lại"** bấm mở được: phản ví dụ 0 và 1 (G11)
 - Hai nút: **[Báo giảng viên]** · **[Hỏi TA về câu này]**
 - Nút **[Xem nguyên văn §3.3]** mở đúng đoạn tài liệu để học viên tự đọc
 
-**Bước tiếp theo của người dùng:** bấm [Báo giảng viên] (1 cú bấm, không phải gõ gì) · hoặc [Hỏi TA] (đi qua `chuyen_TA`, học viên xác nhận nội dung gửi) · hoặc bấm "có" để học §3.2.
+**Bước tiếp theo của người dùng:** bấm [Báo giảng viên] · hoặc [Hỏi TA] (đi qua `chuyen_TA`, học viên xác nhận nội dung gửi) · hoặc bấm "có" để học §3.2.
 
 **Nếu họ không làm gì:** màn hình vẫn giữ badge cảnh báo; câu trả lời **không bao giờ** bị đổi thành khẳng định "độ lệch chuẩn luôn nhỏ hơn phương sai". Không có auto-escalate (tự gửi báo cáo) — vì báo giảng viên là hành động của học viên, và tự gửi là quyết định thay họ.
 
@@ -199,7 +199,7 @@ Bảng tool của track có 4 tool; nhóm **tách `goi_y_bai_tap` thành 2 bư�
 |---|---|---|
 | Phạm Hoàng Đức Minh | tự làm + luật chặt | chờ TA lúc 10h tối = chờ vô ích |
 | Nguyễn Cao Minh | tự làm + giới hạn | như trên |
-| **MinhTDN** | **cần người duyệt** | gợi ý sai/quá chi tiết → học viên hiểu sai hoặc mất cơ hội tự giải |
+| **Trần Đình Nhật Minh** | **cần người duyệt** | gợi ý sai/quá chi tiết → học viên hiểu sai hoặc mất cơ hội tự giải |
 | Nguyễn Văn Minh | tự làm + luật chặt | như trên |
 
 **Cái giá của mỗi phía, trỏ về §2:**
@@ -253,10 +253,10 @@ Nhờ tách bước, **KB-6 và KB-7 đều bị chặn** — xem 4.3.
 
 ## §5. Prototype
 
-**File:** [`prototype/index.html`](prototype/index.html) — mở bằng trình duyệt (double-click), không cần cài gì, không cần đăng nhập.
-**Công cụ:** một file HTML tự chứa (HTML/CSS/JS thuần, không framework, không build step).
-**Có lời gọi AI thật không:** **không** — toàn bộ câu trả lời là mock, viết tay từ dữ liệu dựng của track. Bonus +3 không làm (xem lý do ở §5.3).
-**Phần nào mock:** mọi thứ — không backend, không API, không state lưu lại. Hàng chờ TA/FAQ/giảng viên chỉ đếm trong bộ nhớ.
+- **File:** [`prototype/index.html`](prototype/index.html) 
+- **Công cụ:** một file HTML tự chứa (HTML/CSS/JS thuần, không framework, không build step).  
+- **Mock:** tất cả mọi thứ — không backend, không API, không state lưu lại. Hàng chờ TA/FAQ/giảng viên chỉ đếm trong bộ nhớ.  
+- **Có lời gọi AI thật không:** toàn bộ câu trả lời là mock, viết tay từ dữ liệu dựng của track.  
 
 ### 5.1 Cấu trúc
 
@@ -264,8 +264,8 @@ Nhờ tách bước, **KB-6 và KB-7 đều bị chặn** — xem 4.3.
 |---|---|
 | **3 ca bấm được** (guided walkthrough) | Ca **A** · Xin giải hộ bài đang mở (4 bước) · Ca **B** · Tài liệu §3.3 có câu sai (3 bước) · Ca **C** · Ca bình thường (1 bước, để so) |
 | **8 nút free-play** | Xử lý **ca lạ** lúc demo — mỗi nút là một tin nhắn thật của học viên, phủ đủ 4 lớp ①②③④ của §2 |
-| **Cột phải: state panel** | Cho người xem thấy tool vừa gọi · mức tự chủ · độ chắc · hàng chờ. Đây là phần "surface the state" — biến quyết định thiết kế thành thứ nhìn thấy được |
-| **Bảng 5 mức tự chủ** | In đúng §4.1, dòng của tool vừa gọi được tô sáng — TA đối chiếu được ngay |
+| **Cột phải: state panel** | Cho người xem thấy tool vừa gọi · mức tự chủ · độ chắc · hàng chờ. |
+| **Bảng 5 mức tự chủ** | In đúng §4.1, dòng của tool vừa gọi được tô sáng |
 | **Chú giải ①–⑧** | Mỗi số trỏ về một chỗ cụ thể trên màn hình + nguyên tắc HAX/PAIR tương ứng |
 
 ### 5.2 Ảnh đánh số
@@ -307,7 +307,7 @@ Nhờ tách bước, **KB-6 và KB-7 đều bị chặn** — xem 4.3.
 | **Không hiện gì** (AI tự quyết ngầm) | Vi phạm G1/G2 — học viên không biết hệ thống làm được gì, và không có cách nào phản đối |
 | **Mức tự chủ hiện thành *hình dạng của nút*** ✓ | "Tự làm" = AI trả lời ngay, không nút nào. "Cần duyệt" = có nút xác nhận kèm nội dung. "Cấm" = **không tồn tại nút** (không phải nút bị mờ). Học viên không phải hiểu khái niệm "mức tự chủ" — họ chỉ thấy cái gì bấm được |
 
-**Vì sao không làm lời gọi AI thật (+3 bonus):** M3 mới là điều kiện cần; 3 điểm bonus không đáng đánh đổi 25 điểm R5. Nếu còn giờ sau khi M3 đạt thì làm, với key nhập lúc demo — nhưng ưu tiên là **bấm qua được ca khó**.
+**Vì sao không làm lời gọi AI thật (+3 bonus):** M3 (bấm qua được ca khó) mới là điều kiện cần; 3 điểm bonus không đáng đánh đổi 25 điểm R5. Nếu còn giờ sau khi M3 đạt thì làm, với key nhập lúc demo và không nằm trong code nộp — nhưng ưu tiên là **bấm qua được ca khó**.
 
 ---
 
@@ -317,7 +317,7 @@ Ba tiêu chí **Pass/Fail**, chấm được mà không cần tranh luận. Mỗ
 
 | # | Tiêu chí | Pass khi | Fail khi |
 |---|---|---|---|
-| **C1** | Trích dẫn mở được | Mọi câu trả lời có nội dung lấy từ tài liệu đều kèm **mã mục bấm mở được** (ví dụ §3.2) | Có câu trả lời nào không trích được mục, hoặc trích mục không tồn tại ("slide 12") |
+| **C1** | Trích dẫn mở được | Mọi câu trả lời có nội dung lấy từ tài liệu đều kèm **mã mục bấm mở được** | Có câu trả lời nào không trích được mục, hoặc trích mục không tồn tại  |
 | **C2** | Không chấm hộ | Khi học viên xin đáp số **hoặc xác nhận đáp số** của bài đang mở, **không tồn tại** bất kỳ nút hay câu nào xác nhận | Có nút [Đúng rồi] / [Xác nhận], hoặc AI nói "đúng rồi"/"sai rồi" |
 | **C3** | Tài liệu sai thì chỉ ra | AI nêu **câu nào** cần xem lại + **vì sao** + đường báo giảng viên | AI khẳng định tài liệu đúng, hoặc im lặng trích nguyên câu sai |
 
@@ -326,15 +326,15 @@ Ba tiêu chí **Pass/Fail**, chấm được mà không cần tranh luận. Mỗ
 | Tiêu chí | Kiểm bằng kịch bản | KB-3 (§3.3 sai) | KB-7 (xin xác nhận) | KB-1 ("slide 12") |
 |---|---|---|---|---|
 | **C1** | KB-1, KB-3, KB-7 | **Pass** — có [Xem nguyên văn §3.3] | **Pass** — có khối §3.1, §3.2 | **Pass** — chỉ §3.1–§3.5 |
-| **C2** | KB-6, KB-7 | n/a | **Pass** — không có nút xác nhận nào | n/a |
-| **C3** | KB-3, KB-10 | **Pass** — badge ⚠ + khối "Vì sao" + [Báo giảng viên] | n/a | n/a |
+| **C2** | KB-6, KB-7 | — | **Pass** — không có nút xác nhận nào | — |
+| **C3** | KB-3, KB-10 | **Pass** — badge ⚠ + khối "Vì sao" + [Báo giảng viên] | — | — |
 
 **Kết quả: 3/3 tiêu chí Pass trên cả hai kịch bản đắt nhất.**
 
-### 6.2 Lỗi còn lại (ghi trung thực)
+### 6.2 Lỗi còn lại 
 
-1. **C3 chỉ kiểm được với câu sai mà nhóm đã biết trước (§3.3).** Nếu tài liệu có một câu sai khác mà nhóm chưa phát hiện, AI vẫn có thể khẳng định nó đúng — luật "tài liệu có thể sai" (§4.4) mới là **quy trình**, chưa phải **bảo đảm**. Đây là lỗi lớn nhất còn lại.
-2. **C1 có thể bị lách:** AI trích đúng mã mục nhưng **diễn giải sai nội dung** mục đó → vẫn Pass C1 mà vẫn dạy sai. Cần thêm tiêu chí "nguyên văn trích phải khớp tài liệu" — thuộc bộ eval đầy đủ của buổi Evaluation, không làm ở đây.
+1. **C3 chỉ kiểm được với câu sai mà nhóm đã biết trước .** Nếu tài liệu có một câu sai khác mà nhóm chưa phát hiện, AI vẫn có thể khẳng định nó đúng — luật "tài liệu có thể sai" (§4.4) mới là **quy trình**, chưa phải **bảo đảm**. Đây là lỗi lớn nhất còn lại.
+2. **C1 có thể bị lách:** AI trích đúng mã mục nhưng **diễn giải sai nội dung** mục đó → vẫn Pass C1 mà vẫn dạy sai. Cần thêm tiêu chí "nguyên văn trích phải khớp tài liệu"
 3. **KB-8 (học viên tự chê mình) không có tiêu chí nào kiểm** — không tool nào phục vụ nó, chỉ là câu chữ. Nó phụ thuộc chất lượng model, không phụ thuộc thiết kế.
 4. **KB-11 ("đã báo TA chưa") chưa kiểm thật được** — prototype mock hàng chờ, nên trạng thái "đã có mã hàng chờ" là giả lập.
 
