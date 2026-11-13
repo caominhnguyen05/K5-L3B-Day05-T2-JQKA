@@ -1,6 +1,6 @@
 # Grilling · Round 1 — trả lời trước khi bắt đầu làm bài
 
-> Mỗi người **tự pull về, trả lời vào file này, commit + push**. Không trả lời chung một bản — muốn xem 3 người có lệch nhau không. Hạn: trước buổi lab.
+> Mỗi người **tự pull về, trả lời vào file này, commit + push**. Không trả lời chung một bản — muốn xem 4 người có lệch nhau không. Hạn: trước buổi lab. _(Nhóm 4 người — lab coach đã đồng ý.)_
 >
 > Cách trả lời: điền dưới mỗi câu `**Trả lời:**`, ghi tên ở đầu phần trả lời của mình. Không biết thì ghi "không chắc" + chỗ đang kẹt — đừng để trống.
 
@@ -37,14 +37,16 @@ Nói **một câu**: ai đang làm gì, AI phải quyết gì, sai thì ai chị
 
 > Học viên kẹt bài lúc 10h tối, khi TA đã off (giờ TA hết 22:00). Thay vì tự dò từng mục tài liệu hoặc bỏ cuộc tới sáng, AI quyết: giảng kèm trích mục tài liệu / hỏi lại cho rõ / gợi ý từng bước / nói "tài liệu không có, hỏi giảng viên". Sai thì học viên học sai mà không biết — rẻ nhưng âm thầm, không ai báo.
 
-**Trả lời — [tên TV1]:**
+**Trả lời — [Phạm Hoàng Đức Minh]:** Khi học viên làm bài hay học bài buổi tối muộn và muốn hỏi bài nhưng không còn ai để hỏi. Thay vì phải tự tìm kiếm trong tài liệu thì AI quyết: Giảng kèm trích tài liệu / hỏi lại cho rõ đúng không / gợi ý tựng bước / nếu không có tài liệu nói " Tài liệu không có, hỏi giảng viên". - Nếu sai thì học viên học sai đi mà không biết.
 
 **Trả lời — [tên TV2]:**
 Học viên gặp khó khăn khi tự học bài vào tối muộn, lúc không còn TA để hỗ trợ. AI được quyền chủ động tra cứu tài liệu khóa học và quyết định xem nên giải thích kèm nguồn, gợi ý thêm cho học viên, hay chuyển câu hỏi cho TA khi không chắc chắn. Nếu AI trả lời sai, học viên có thể hiểu sai kiến thức mà không nhận ra, ảnh hưởng đến sự hiểu bài và kết quả học tập.
 
 Quyển mới được trao cho AI: AI được tự tra cứu, chọn nội dung phù hợp trên tài liệu khóa học, thay vì học viên phải tự tìm kiếm và suy luận ra câu trả lời.
 
-**Trả lời — [tên TV3]:**
+**Trả lời — [MinhTDN]:** Trong trang quản lý khóa học, khi giảng viên cần tra cứu hoặc kiểm chứng một kiến thức, AI tìm kiếm trong tài liệu khóa học, tổng hợp câu trả lời kèm trích dẫn chính xác đến buổi học, mục và trang. Nếu không tìm thấy căn cứ hoặc tài liệu có thông tin mâu thuẫn, AI báo "không có tài liệu" để giảng viên tự xác minh, không tự suy diễn. Sai thì giảng viên sẽ chuẩn bị kiến thức sai bài giảng, ảnh hưởng cả giảng viên lẫn học viên
+
+**Trả lời — Nguyễn Văn Minh (TV4):** Mình từng là người dùng thật của pain này: tự học sách kỹ thuật Toán-heavy lúc tối, kẹt một khái niệm nền là nhảy ra Google/ChatGPT — mỗi lần 15–30 phút, 2–3 lần một chương, mất đà đọc. Lát cắt theo lời mình: **học viên đang làm bài buổi 3 lúc tối muộn (TA đã off sau 22:00), kẹt một khái niệm trong tài liệu; AI phải quyết: giảng kèm trích đúng mục tài liệu, hỏi lại cho rõ, gợi ý từng bước, hay nói thẳng "tài liệu không có, hỏi giảng viên".** Sai thì học viên học sai mà không biết — mình từng bỏ DeepTutor đúng vì giải thích không bám bài giảng thật. Quyền AI được thêm so với trước: thay cho việc học viên **tự dò từng mục tài liệu** hoặc **bỏ cuộc tới sáng** — hai con đường duy nhất hôm nay.
 
 ---
 
@@ -54,7 +56,11 @@ Chọn **3 việc** tính năng sẽ không làm. Ứng viên (từ rubric riên
 
 Mỗi người đề xuất 3 việc + **một câu vì sao mỗi việc**.
 
-**Đề xuất — [tên TV1]:**
+**Đề xuất — [Phạm Hoàng Đức Minh]:** 3 tính năng không làm :
+
+- Không nói về nguồn không có : vì khi làm vậy có thể sẽ dẫn đến việc học viên học lệch hướng học sai mà học viên không biết, thay vào đó có thể liệt kê nguồn và kêu học viên hỏi giảng viên sau
+- Không đưa hoặc xác nhận đáp số bài đang mở : vì nếu làm vậy có thể làm học viên gian lận, không muốn hoàn thành bài trước khi bài đóng.
+- Không hứa việc không làm được : vì học viên có thể yêu cầu nhiều việc mà chỉ hứa và không làm sẽ không đạt hiệu quả học tập.
 
 **Đề xuất — [tên TV2]:**
 
@@ -63,8 +69,15 @@ Mỗi người đề xuất 3 việc + **một câu vì sao mỗi việc**.
 - Giải toàn bộ bài tập cho học viên mà không nêu ra các câu hỏi gợi ý trước: Điều này khiến học viên quá phụ thuộc vào AI mà không chủ động làm bài, dẫn đến không tiếp thu được kiến thức và hiểu bài.
 
 **Đề xuất — [tên TV3]:**
+**Đề xuất — [MinhTDN]:** Đưa ra kết luận khi thiếu bằng chứng gây ra rối loạn dẫn đến sai cho giảng viên. Tự sửa tài liệu khiến kiến thức bị thay đổi mất kiểm soát. Tự nạp thêm thông tin từ internet, kiến thức bị mở rộng không cần thiết
 
-**Chốt của nhóm (điền sau khi cả 3 đề xuất):**
+**Đề xuất — Nguyễn Văn Minh (TV4):**
+
+1. **Không đưa/xác nhận đáp số bài đang mở** (bài 3 hạn 13/11 đang mở) — `goi_y_bai_tap` quá tay thì học viên đã chép; sai thì học sai mà không biết, là cái giá đắt nhất của domain (âm thầm, không ai báo).
+2. **Không nhận xét năng lực người học** ("bạn yếu phần này") — lỗi niềm tin, không đảo lại được với học viên đang tự hoài nghi lúc 10h tối; không tool nào phục vụ việc này một cách an toàn.
+3. **Không giảng nội dung buổi chưa học** (buổi 4–10) — dữ liệu chỉ có buổi 1–3 + tên đề cương; giảng buổi 7 (p-value) là bịa nguồn sự thật (lớp ①), đúng hard test "hỏi nội dung buổi chưa học".
+
+**Chốt của nhóm (điền sau khi cả 4 đề xuất):**
 
 ---
 
@@ -78,8 +91,10 @@ Ba vai cần người ngay từ đầu (xem README, không bắt buộc đúng t
 **Trả lời (ai nhận vai nào, tại sao mình phù hợp):**
 
 - TV1:
+- Phạm Hoàng Đức Minh : Viết câu chữ AI
 - TV2:
 - TV3:
+- Nguyễn Văn Minh (TV4): **dựng prototype.** Lý do: mình làm việc thường xuyên với coding agent (pi), đã có sẵn quy trình dựng prototype HTML tự chứa bấm được (guided walkthrough cho ca khó + free-play cho ca lạ) — ngày lab chỉ cần đổ nội dung nhóm chốt vào. Cam kết: mỗi chỗ trên prototype mình đều giải thích được vì sao nó ở đó (vibe-coding rule).
 
 ---
 
@@ -87,9 +102,11 @@ Ba vai cần người ngay từ đầu (xem README, không bắt buộc đúng t
 
 Chọn công cụ: Lovable / v0.dev / Figma / coding agent / **một file HTML tự chứa**. Ai cầm phần này thì trả lời.
 
+**Trả lời — Nguyễn Văn Minh (TV4, người cầm prototype):** Chọn **một file HTML tự chứa** — double-click mở được, cùng dạng với mẫu giảng viên (`prototype-sample/index.html`), không cần đăng ký tài khoản nào trước giờ lab → không rủi ro "kẹt kỹ thuật quá 20 phút". Kèm theo: guided walkthrough (bấm qua ca khó từ đầu tới cuối, đúng tiêu chí R5 5 điểm) + free-play buttons (xử lý ca lạ TA đưa lúc demo). Bonus lời gọi AI thật (+3): **chỉ làm sau khi M3 đạt** — còn giờ thì dùng API free tier, key nhập lúc demo, tuyệt đối không nằm trong code nộp. Đánh đổi 3 điểm bonus bằng 25 điểm R5 là lỗ.
+
 Có làm lời gọi AI thật (**+3 bonus**, điều kiện: không lộ API key trong code nộp, chỉ đưa dữ liệu dựng) không?
 
-**Trả lời:**
+**Trả lời:** coding agent
 
 ---
 
@@ -102,6 +119,7 @@ Chỉ cần ý kiến ban đầu — chốt hẳn cuối chặng 5 sau khi M3 đ
 - TV1:
 - TV2:
 - TV3:
+- Nguyễn Văn Minh (TV4): Nghiêng về **xung phong demo trước lớp** nếu M3 đạt — chốt hẳn cuối chặng 5 theo cả nhóm; nếu xung phong thì mình tập trước ít nhất một ca lạ trên free-play của prototype.
 
 ---
 
@@ -117,6 +135,8 @@ Từng thử app/chatbot học tập nào chưa (DeepTutor, ChatGPT thường, K
 Đã dùng ChatGPT và Gemini để giúp giải các bài toán Calculus cấp 3. Vẫn kẹt vì ChatGPT trả lời đúng nhưng dùng các công thức hoặc kiến thức chưa được học trong chương trình, dẫn đến không hiểu cách làm. ChatGPT/Gemini khi được hỏi giải bài chỉ đưa luôn ra đáp án/cách giải chứ không đưa ra các gợi ý/câu hỏi cho học viên để tự suy nghĩ tiếp và giải.
 
 **Trả lời — [tên TV3]:**
+
+**Trả lời — Nguyễn Văn Minh (TV4):** Đã thử **DeepTutor** (app học tập có sẵn) khi tự học sách kỹ thuật Toán-heavy — **bỏ vì "không có bài giảng thật"**: giải thích chung chung, không bám đúng tài liệu mình đang học. ChatGPT thường cũng vậy: trả lời không dẫn nguồn vào tài liệu buổi học, mình không có cách kiểm nó bịa chỗ nào. Câu phản biện từng nhận ở Day 02 (_"chatbot đã đủ để tóm tắt tài liệu rồi, tại sao vấn đề vẫn hiện hữu?"_) — câu trả lời chính là lý do tồn tại của T2: ChatGPT không có căn cứ vào tài liệu buổi 3, không biết nói "tài liệu không có", và không có TA để chuyển. **Bài học cho thiết kế:** mỗi câu giảng phải trích kèm mã mục (§3.2…) để học viên kiểm được — hiển thị bằng chứng trên prototype là bắt buộc, không phải trang trí.
 
 ---
 
