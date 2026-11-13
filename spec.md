@@ -273,11 +273,61 @@ Nhờ tách bước, **KB-6 và KB-7 đều bị chặn** — xem 4.3.
 
 ## §5. Prototype
 
-> **TODO (Nguyễn Văn Minh):** 1 file HTML tự chứa, 2 tab walkthrough (A: xin giải hộ bài đang mở · B: tài liệu §3.3 sai) + free-play cho ca lạ. Ảnh đánh số ①–⑦ map với G2/G10/G11 và 5 mức tự chủ ở §4.1.
+**File:** [`prototype/index.html`](prototype/index.html) — mở bằng trình duyệt (double-click), không cần cài gì, không cần đăng nhập.
+**Công cụ:** một file HTML tự chứa (HTML/CSS/JS thuần, không framework, không build step).
+**Có lời gọi AI thật không:** **không** — toàn bộ câu trả lời là mock, viết tay từ dữ liệu dựng của track. Bonus +3 không làm (xem lý do ở §5.3).
+**Phần nào mock:** mọi thứ — không backend, không API, không state lưu lại. Hàng chờ TA/FAQ/giảng viên chỉ đếm trong bộ nhớ.
 
-- Link/file · công cụ · phần nào mock · có lời gọi AI thật không:
-- Ảnh đánh số; mỗi số: thể hiện gì · nguyên tắc HAX/PAIR nào · mức tự chủ nào:
-- Quyết định: cách hiện độ chắc/bằng chứng và điều khiển mức tự chủ — đã nghĩ tới cách nào khác, vì sao chọn cách này:
+### 5.1 Cấu trúc
+
+| Thành phần | Để làm gì |
+|---|---|
+| **3 ca bấm được** (guided walkthrough) | Ca **A** · Xin giải hộ bài đang mở (4 bước) · Ca **B** · Tài liệu §3.3 có câu sai (3 bước) · Ca **C** · Ca bình thường (1 bước, để so) |
+| **8 nút free-play** | Xử lý **ca lạ** lúc demo — mỗi nút là một tin nhắn thật của học viên, phủ đủ 4 lớp ①②③④ của §2 |
+| **Cột phải: state panel** | Cho người xem thấy tool vừa gọi · mức tự chủ · độ chắc · hàng chờ. Đây là phần "surface the state" — biến quyết định thiết kế thành thứ nhìn thấy được |
+| **Bảng 5 mức tự chủ** | In đúng §4.1, dòng của tool vừa gọi được tô sáng — TA đối chiếu được ngay |
+| **Chú giải ①–⑧** | Mỗi số trỏ về một chỗ cụ thể trên màn hình + nguyên tắc HAX/PAIR tương ứng |
+
+### 5.2 Ảnh đánh số
+
+**Ảnh 1 — `prototype/shot-A.png`** (ca A: xin giải hộ bài đang mở)
+
+| Số | Chỗ trên màn hình | Thể hiện gì | Nguyên tắc | Mức tự chủ |
+|---|---|---|---|---|
+| **①** | Nhãn "Trợ lý AI" ở header khung chat | Học viên biết mình đang nói chuyện với AI, không nhầm là TA thật | **G2** + Luật TTNT 134/2025/QH15 Điều 11 khoản 1 | — |
+| **②** | Thanh độ chắc + chữ "Mình khá chắc" | AI nói rõ nó chắc tới đâu, ngay trên câu trả lời | **G2** | — |
+| **⑦** | Badge 🔒 "Bài đang mở — mình không chấm hộ" | Ranh giới thẩm quyền hiện thành nhãn nhìn thấy được, không chỉ là luật ngầm | **G10** | **cấm** (`giai_chi_tiet`) |
+| **⑥** | Nút [Chuyển TA] → khối xác nhận nội dung gửi → học viên bấm | AI soạn sẵn nhưng **không tự gửi**; học viên thấy nguyên văn trước khi gửi | PAIR *Return control to the user* | **cần người duyệt (học viên)** (`chuyen_TA`) |
+
+**Ảnh 2 — `prototype/shot-B.png`** (ca B: tài liệu §3.3 có câu sai)
+
+| Số | Chỗ trên màn hình | Thể hiện gì | Nguyên tắc | Mức tự chủ |
+|---|---|---|---|---|
+| **②** | Thanh độ chắc ở mức **thấp** + "Mình không chắc" | Độ chắc **đổi theo tình huống**, không phải nhãn trang trí | **G2** | — |
+| **③** | Badge ⚠ "Tài liệu có thể sai" trên khối trích dẫn §3.3 | AI thu hẹp phạm vi thay vì khẳng định — đây là chỗ **G10 hiện ra thành hình** | **G10** | `tra_cuu_tai_lieu` = **tự làm** (chỉ đọc) |
+| **④** | Khối "Vì sao mình nói câu này cần xem lại" (bấm mở) | Chứa phản ví dụ 0 và 1 → phương sai 0,25 < độ lệch chuẩn 0,5. Học viên **tự kiểm** được, không phải tin | **G11** | — |
+| **⑤** | Nút [Báo giảng viên] | Đường lui riêng cho **lỗi ngữ cảnh** (khác đường lui của lỗi người dùng ở ảnh 1) | PAIR *Errors + Graceful Failure* | — |
+| **⑧** | Hàng chờ "FAQ chờ TA duyệt" (cột phải, khi bấm nút free-play FAQ) | Việc sai mà nhiều người đọc thì phải qua người duyệt | — | **cần người duyệt (TA)** (`dang_FAQ`) |
+
+### 5.3 Quyết định thiết kế: cách hiện độ chắc và điều khiển mức tự chủ
+
+**Đã nghĩ tới 3 cách hiện độ chắc, chọn cách thứ 3:**
+
+| Cách | Vì sao loại |
+|---|---|
+| Hiện **phần trăm** ("độ tin cậy 62%") | PAIR cảnh báo số phần trăm khó hiểu với người dùng thường; với học viên đang kẹt bài thì "62%" không đổi được hành động nào |
+| Hiện **màu** (xanh/vàng/đỏ) | Nhanh nhưng không nói **vì sao** — học viên biết "AI không chắc" mà không biết nên nghi chỗ nào |
+| **Thanh 3 mức + chữ + khối "Vì sao" bấm mở** ✓ | Chữ nói **mức** ("Mình không chắc"), khối mở ra nói **lý do** (phản ví dụ). Học viên kiểm được, không phải tin |
+
+**Đã nghĩ tới 3 cách điều khiển mức tự chủ, chọn cách thứ 3:**
+
+| Cách | Vì sao loại |
+|---|---|
+| **Công tắc "chế độ tự động / chế độ an toàn"** | Đẩy quyết định về phía học viên lúc 10h tối — họ không biết mức nào an toàn, và cái sai đắt nhất (chép đáp số) xảy ra khi họ chọn "tự động" |
+| **Không hiện gì** (AI tự quyết ngầm) | Vi phạm G1/G2 — học viên không biết hệ thống làm được gì, và không có cách nào phản đối |
+| **Mức tự chủ hiện thành *hình dạng của nút*** ✓ | "Tự làm" = AI trả lời ngay, không nút nào. "Cần duyệt" = có nút xác nhận kèm nội dung. "Cấm" = **không tồn tại nút** (không phải nút bị mờ). Học viên không phải hiểu khái niệm "mức tự chủ" — họ chỉ thấy cái gì bấm được |
+
+**Vì sao không làm lời gọi AI thật (+3 bonus):** M3 mới là điều kiện cần; 3 điểm bonus không đáng đánh đổi 25 điểm R5. Nếu còn giờ sau khi M3 đạt thì làm, với key nhập lúc demo — nhưng ưu tiên là **bấm qua được ca khó**.
 
 ---
 

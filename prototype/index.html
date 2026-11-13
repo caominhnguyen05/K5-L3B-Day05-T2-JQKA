@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trợ lý học bài · Buổi 3 — Prototype LAB5 · T2 · Nhóm JQKA</title>
+<style>
+  :root{
+    --ink:#15181d; --ink-2:#4a5260; --ink-3:#7b8494;
+    --line:#dfe3ea; --line-2:#eef1f5;
+    --bg:#f6f7f9; --card:#fff;
+    --accent:#2f5d8a; --accent-soft:#e8f0f8;
+    --warn:#a8630b; --warn-soft:#fdf3e3; --warn-line:#f0d9ae;
+    --lock:#8a2f4a; --lock-soft:#fbeef2;
+    --ok:#2a6b4f; --ok-soft:#e9f5ef;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1240px; margin:0 auto; padding:24px 20px 64px}
+
+  /* ---------- top ---------- */
+  .top{margin-bottom:20px}
+  .top h1{font-size:19px; margin:0 0 6px; letter-spacing:-.01em}
+  .top p{margin:0; color:var(--ink-2); font-size:13.5px; max-width:760px}
+  .top .q{
+    margin-top:12px; padding:10px 14px; background:var(--accent-soft);
+    border-left:3px solid var(--accent); border-radius:0 6px 6px 0;
+    font-size:13px; color:#1f3f5e;
+  }
+
+  /* ---------- layout ---------- */
+  .grid{display:grid; grid-template-columns:minmax(0,1fr) 380px; gap:20px; align-items:start}
+  @media(max-width:1000px){ .grid{grid-template-columns:1fr} }
+
+  .panel{background:var(--card); border:1px solid var(--line); border-radius:10px}
+
+  /* ---------- chat ---------- */
+  .chat-head{
+    display:flex; align-items:center; gap:10px;
+    padding:12px 16px; border-bottom:1px solid var(--line);
+  }
+  .chat-head .course{font-size:12.5px; color:var(--ink-3)}
+  .chat-head .course b{color:var(--ink-2); font-weight:600}
+  .ai-tag{
+    margin-left:auto; display:inline-flex; align-items:center; gap:6px;
+    font-size:11.5px; font-weight:600; letter-spacing:.02em;
+    background:var(--accent-soft); color:#1f3f5e;
+    padding:4px 9px; border-radius:999px; border:1px solid #cfe0f0;
+  }
+  .ai-tag .dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+
+  .chat-body{padding:16px; min-height:340px; max-height:min(58vh,560px); overflow-y:auto}
+  .chat-body:empty::after{
+    content:"Bấm một bước ở cột phải để bắt đầu, hoặc dùng nút free-play.";
+    color:var(--ink-3); font-size:13px;
+  }
+
+  .msg{display:flex; margin-bottom:14px}
+  .msg.user{justify-content:flex-end}
+  .bubble{
+    max-width:min(88%,620px); padding:10px 14px; border-radius:12px; font-size:14px;
+  }
+  .msg.user .bubble{background:var(--accent); color:#fff; border-bottom-right-radius:4px}
+  .msg.ai .bubble{background:#f4f6f9; border:1px solid var(--line-2); border-bottom-left-radius:4px}
+  .bubble p{margin:0 0 8px}
+  .bubble p:last-child{margin-bottom:0}
+  .bubble ul{margin:6px 0 8px; padding-left:20px}
+  .bubble li{margin-bottom:4px}
+  .cite{
+    font-family:var(--mono); font-size:12px; background:#fff;
+    border:1px solid var(--line); border-radius:4px; padding:1px 5px; color:#1f3f5e;
+  }
+  .quote{
+    margin:8px 0; padding:9px 12px; background:#fff; border:1px solid var(--line);
+    border-left:3px solid var(--ink-3); border-radius:0 5px 5px 0; font-size:13px; color:var(--ink-2);
+  }
+  .quote em{color:var(--ink); font-style:italic}
+
+  /* ---------- inline badges ---------- */
+  .n{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:17px; height:17px; border-radius:50%;
+    background:var(--ink); color:#fff; font-size:10.5px; font-weight:700;
+    vertical-align:1px; margin-right:5px; flex:none;
+  }
+  .n.on-warn{background:var(--warn)}
+  .n.on-lock{background:var(--lock)}
+  .n.on-ok{background:var(--ok)}
+
+  /* ---------- confidence ---------- */
+  .conf{display:flex; align-items:center; gap:8px; margin:10px 0 8px; font-size:12px; color:var(--ink-2)}
+  .conf .bar{display:flex; gap:2px}
+  .conf .seg{width:22px; height:5px; border-radius:2px; background:var(--line)}
+  .conf .seg.f{background:var(--accent)}
+  .conf.low .seg.f{background:var(--warn)}
+  .conf .lbl{font-weight:600}
+
+  /* ---------- chips / callouts ---------- */
+  .chip{
+    display:inline-flex; align-items:center; gap:5px;
+    font-size:11.5px; font-weight:600; padding:3px 8px; border-radius:5px;
+    border:1px solid transparent;
+  }
+  .chip.warn{background:var(--warn-soft); color:var(--warn); border-color:var(--warn-line)}
+  .chip.lock{background:var(--lock-soft); color:var(--lock); border-color:#eed3dc}
+  .chip.ok{background:var(--ok-soft); color:var(--ok); border-color:#cbe5d8}
+
+  /* ---------- actions ---------- */
+  .acts{display:flex; flex-wrap:wrap; gap:7px; margin-top:11px}
+  button{
+    font:inherit; font-size:13px; padding:6px 12px; border-radius:6px; cursor:pointer;
+    border:1px solid var(--line); background:#fff; color:var(--ink);
+    transition:.12s;
+  }
+  button:hover:not(:disabled){border-color:#b9c2d0; background:#fafbfc}
+  button:disabled{opacity:.45; cursor:not-allowed}
+  button.primary{background:var(--accent); border-color:var(--accent); color:#fff}
+  button.primary:hover:not(:disabled){background:#264d73; border-color:#264d73}
+  button.warn{background:var(--warn-soft); border-color:var(--warn-line); color:var(--warn); font-weight:600}
+  button.ghost{background:transparent; border-style:dashed; color:var(--ink-2)}
+
+  /* ---------- details (why block) ---------- */
+  details.why{
+    margin-top:10px; background:#fff; border:1px solid var(--line); border-radius:7px;
+  }
+  details.why summary{
+    cursor:pointer; padding:9px 12px; font-size:13px; font-weight:600; color:var(--ink-2);
+    list-style:none;
+  }
+  details.why summary::-webkit-details-marker{display:none}
+  details.why summary::before{content:"▸ "; color:var(--ink-3)}
+  details.why[open] summary::before{content:"▾ "}
+  details.why .body{
+    padding:0 12px 12px; font-size:13px; color:var(--ink-2); border-top:1px solid var(--line-2);
+    margin-top:0; padding-top:10px;
+  }
+  details.why .body p{margin:0 0 8px}
+  details.why .body p:last-child{margin-bottom:0}
+
+  /* ---------- transfer confirm ---------- */
+  .confirm{
+    margin-top:10px; border:1px solid #cfe0f0; background:var(--accent-soft);
+    border-radius:8px; padding:12px;
+  }
+  .confirm .t{font-size:12.5px; font-weight:700; color:#1f3f5e; margin-bottom:8px}
+  .confirm .send{
+    background:#fff; border:1px solid var(--line); border-radius:6px; padding:9px 11px;
+    font-size:13px; color:var(--ink-2); margin-bottom:9px; white-space:pre-wrap;
+  }
+  .confirm .meta{font-size:12px; color:var(--ink-2); margin-bottom:10px}
+
+  /* ---------- right column ---------- */
+  .side{display:flex; flex-direction:column; gap:14px}
+  .side h2{
+    font-size:11.5px; text-transform:uppercase; letter-spacing:.07em;
+    color:var(--ink-3); margin:0; padding:12px 14px 0; font-weight:700;
+  }
+  .side .pad{padding:12px 14px}
+
+  .scn{border-bottom:1px solid var(--line-2); padding:12px 14px}
+  .scn:last-child{border-bottom:none}
+  .scn .name{font-size:13px; font-weight:700; margin-bottom:3px}
+  .scn .desc{font-size:12px; color:var(--ink-3); margin-bottom:9px; line-height:1.5}
+  .scn .steps{display:flex; flex-direction:column; gap:6px}
+  .step{
+    text-align:left; font-size:12.5px; padding:7px 10px; border-radius:6px;
+    border:1px solid var(--line); background:#fff; display:flex; gap:8px; align-items:flex-start;
+  }
+  .step .idx{
+    flex:none; width:16px; height:16px; border-radius:50%; background:var(--line-2);
+    color:var(--ink-2); font-size:10px; font-weight:700;
+    display:flex; align-items:center; justify-content:center; margin-top:1px;
+  }
+  .step.done{opacity:.5}
+  .step.done .idx{background:var(--ok-soft); color:var(--ok)}
+  .step:not(.done):not(:disabled){border-color:#c5d3e2; background:#fbfcfe}
+  .step:not(.done):not(:disabled):hover{background:var(--accent-soft); border-color:#a9c2da}
+
+  /* state */
+  .kv{display:flex; justify-content:space-between; gap:10px; font-size:12.5px; padding:5px 0}
+  .kv .k{color:var(--ink-3)}
+  .kv .v{font-weight:600; text-align:right}
+  .kv .v.mono{font-family:var(--mono); font-size:12px; font-weight:500}
+  .queue{margin-top:8px; border-top:1px solid var(--line-2); padding-top:9px}
+  .queue .row{
+    display:flex; justify-content:space-between; gap:8px; font-size:12px; padding:4px 0;
+  }
+  .queue .row .nm{color:var(--ink-2)}
+  .queue .row .ct{font-weight:700; font-family:var(--mono)}
+  .queue .row .ct.zero{color:var(--ink-3); font-weight:400}
+
+  /* legend */
+  .legend{padding:4px 14px 14px}
+  .legend .li{display:flex; gap:8px; font-size:12px; padding:5px 0; line-height:1.45}
+  .legend .li .n{margin-right:0; margin-top:2px}
+  .legend .li .tx{color:var(--ink-2)}
+  .legend .li .tx b{color:var(--ink); font-weight:600}
+
+  /* autonomy table */
+  .aut{padding:4px 14px 14px}
+  .aut .r{
+    display:flex; justify-content:space-between; gap:8px; align-items:center;
+    font-size:12px; padding:6px 0; border-bottom:1px solid var(--line-2);
+  }
+  .aut .r:last-child{border-bottom:none}
+  .aut .r .t{font-family:var(--mono); font-size:11.5px; color:var(--ink-2)}
+  .aut .r .m{font-size:10.5px; font-weight:700; padding:2px 7px; border-radius:4px; white-space:nowrap}
+  .m.auto{background:var(--ok-soft); color:var(--ok)}
+  .m.human{background:var(--accent-soft); color:#1f3f5e}
+  .m.ban{background:var(--lock-soft); color:var(--lock)}
+  .aut .r.hit{background:#fffbe9; margin:0 -6px; padding:6px; border-radius:5px}
+
+  /* free play */
+  .free{padding:4px 14px 14px; display:flex; flex-direction:column; gap:6px}
+  .free button{text-align:left; font-size:12.5px; padding:7px 10px}
+  .free .grp{font-size:11px; color:var(--ink-3); margin:8px 0 2px; font-weight:600}
+  .free .grp:first-child{margin-top:0}
+
+  .foot{
+    margin-top:22px; padding-top:14px; border-top:1px solid var(--line);
+    font-size:12px; color:var(--ink-3);
+  }
+  .foot a{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top">
+    <h1>Trợ lý học bài · Buổi 3 "Thống kê mô tả" — prototype bấm được</h1>
+    <p>Khoá <b>Nhập môn phân tích dữ liệu</b> · học viên đang học buổi 3 · giờ TA 08:00–22:00.
+       Prototype cho <b>lát cắt T2</b>: khi AI không chắc hoặc sai thì học viên thấy gì, và AI được tự làm tới đâu.</p>
+    <div class="q">
+      <b>Câu hỏi prototype này trả lời:</b> với 5 mức tự chủ đã đặt (spec §4.1), khi học viên kẹt bài lúc 10h tối
+      thì AI làm gì, không làm gì, và cái sai nào bị chặn — cái nào <i>không</i> chặn được bằng mức tự chủ.
+    </div>
+  </div>
+
+  <div class="grid">
+
+    <!-- ============ LEFT: the product ============ -->
+    <div class="panel">
+      <div class="chat-head">
+        <div class="course"><b>Nhập môn phân tích dữ liệu</b> · Buổi 3 · §3.1–§3.5</div>
+        <span class="ai-tag"><span class="dot"></span><span class="n" style="margin-right:2px">1</span>Trợ lý AI</span>
+      </div>
+      <div class="chat-body" id="chat"></div>
+    </div>
+
+    <!-- ============ RIGHT: controls + state ============ -->
+    <div class="side">
+
+      <!-- guided walkthroughs -->
+      <div class="panel">
+        <h2>Ca bấm được (guided walkthrough)</h2>
+
+        <div class="scn" id="scn-A">
+          <div class="name">A · Xin giải hộ bài đang mở</div>
+          <div class="desc">Ca khó chính. Học viên đòi thứ AI không được phép làm — AI phải từ chối mà vẫn hữu ích.</div>
+          <div class="steps" data-scn="A">
+            <button class="step" data-step="0"><span class="idx">1</span><span>Học viên xin <b>giải hộ</b> bài 3</span></button>
+            <button class="step" data-step="1"><span class="idx">2</span><span>Học viên xin <b>xác nhận đáp số</b></span></button>
+            <button class="step" data-step="2"><span class="idx">3</span><span>Học viên bấm <b>[Chuyển TA]</b></span></button>
+            <button class="step" data-step="3"><span class="idx">4</span><span>Học viên <b>xác nhận gửi</b></span></button>
+          </div>
+        </div>
+
+        <div class="scn" id="scn-B">
+          <div class="name">B · Tài liệu §3.3 có câu sai</div>
+          <div class="desc">Ca ăn điểm R3. Tài liệu khoá học chứa câu sai — và nó "đúng vì may" nếu thử bằng dữ liệu bài tập.</div>
+          <div class="steps" data-scn="B">
+            <button class="step" data-step="0"><span class="idx">1</span><span>Hỏi <b>độ lệch chuẩn vs phương sai</b></span></button>
+            <button class="step" data-step="1"><span class="idx">2</span><span>Mở khối <b>"Vì sao cần xem lại"</b></span></button>
+            <button class="step" data-step="2"><span class="idx">3</span><span>Bấm <b>[Báo giảng viên]</b></span></button>
+          </div>
+        </div>
+
+        <div class="scn" id="scn-C">
+          <div class="name">C · Ca bình thường — không chờ ai</div>
+          <div class="desc">Để so: câu hỏi hợp lệ thì AI trả lời ngay, không duyệt, không chờ. Mức tự chủ không làm chậm người dùng bình thường.</div>
+          <div class="steps" data-scn="C">
+            <button class="step" data-step="0"><span class="idx">1</span><span>Hỏi <b>trung vị khác trung bình chỗ nào</b></span></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- free play -->
+      <div class="panel">
+        <h2>Ca lạ (free-play)</h2>
+        <div class="free">
+          <div class="grp">① Nguồn sự thật</div>
+          <button data-free="kb1">"Slide 12 nói gì về phương sai ạ?"</button>
+          <button data-free="kb2">"Buổi 7 học gì ạ? p-value là gì?"</button>
+
+          <div class="grp">② Mơ hồ / thiếu thông tin</div>
+          <button data-free="kb4">"Cái độ lệch ấy là gì ạ, em đọc không hiểu."</button>
+          <button data-free="kb5">"Hạn nộp bài 3? Với cả hàm Excel tính độ lệch chuẩn?"</button>
+
+          <div class="grp">③ Ngoài thẩm quyền</div>
+          <button data-free="kb8">"Em không hiểu gì cả, chắc em dốt môn này"</button>
+          <button data-free="kb9">"Đăng câu này lên FAQ cả lớp nhé"</button>
+
+          <div class="grp">④ Đặc thù domain</div>
+          <button data-free="kb10">"Sáng mai em thi rồi, giảng §3.3 gấp"</button>
+          <button data-free="kb11">"Đã báo TA chưa ạ?"</button>
+        </div>
+      </div>
+
+      <!-- state -->
+      <div class="panel">
+        <h2>Trạng thái (state)</h2>
+        <div class="pad" id="state"></div>
+      </div>
+
+      <!-- autonomy table -->
+      <div class="panel">
+        <h2>5 mức tự chủ — spec §4.1</h2>
+        <div class="aut" id="aut"></div>
+      </div>
+
+      <!-- legend -->
+      <div class="panel">
+        <h2>Chỗ đánh số ①–⑧</h2>
+        <div class="legend" id="legend"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="foot">
+    Prototype LAB5 · T2 Giáo dục · Nhóm JQKA · dữ liệu dựng từ <code>tracks/t2-education.md</code>, không có dữ liệu thật.
+    Mọi câu trả lời của AI là <b>mock</b> — không có lời gọi AI thật.
+    Xem lập luận đầy đủ: <code>spec.md</code> §1–§4.
+  </div>
+</div>
+
+<script>
+/* =========================================================
+   STATE
+   ========================================================= */
+const S = {
+  confidence: null,      // 'high' | 'mid' | 'low' | null
+  tool: null,            // tool vừa gọi
+  autonomy: null,        // 'auto' | 'human' | 'ban'
+  queue: { report: 0, ta: 0, faq: 0 },
+  pendingTransfer: null, // nội dung chờ học viên xác nhận
+  transferSent: false,
+  scn: { A: 0, B: 0, C: 0 }
+};
+
+const TOOL_META = {
+  tra_cuu_tai_lieu:  { label: 'tra_cuu_tai_lieu',  level: 'auto',  note: 'chỉ đọc · tự làm' },
+  goi_y_buoc_dau:    { label: 'goi_y_buoc_dau',    level: 'auto',  note: 'không đưa đáp số · tự làm' },
+  giai_chi_tiet:     { label: 'giai_chi_tiet',     level: 'ban',   note: 'không tồn tại trên UI' },
+  chuyen_TA:         { label: 'chuyen_TA',         level: 'human', note: 'học viên bấm xác nhận' },
+  dang_FAQ:          { label: 'dang_FAQ',          level: 'human', note: 'TA/giảng viên duyệt' }
+};
+
+const LEGEND = [
+  ['1','on-ok',  'Nhãn <b>"Trợ lý AI"</b> cố định', 'G2 + Luật TTNT 134/2025/QH15 Điều 11 khoản 1 (hiệu lực 01/03/2026)'],
+  ['2','',       'Thanh <b>độ chắc</b> + chữ "Mình không chắc"', 'G2 — nói rõ hệ thống làm tốt đến đâu'],
+  ['3','on-warn','Badge <b>⚠ Tài liệu có thể sai</b>', 'G10 — thu hẹp phạm vi khi nghi ngờ'],
+  ['4','',       'Khối <b>"Vì sao cần xem lại"</b> bấm mở', 'G11 — giải thích vì sao'],
+  ['5','on-warn','Nút <b>[Báo giảng viên]</b>', 'PAIR Errors — đường lui của lỗi ngữ cảnh'],
+  ['6','',       'Nút <b>[Chuyển TA]</b> → khối xác nhận → học viên bấm', 'Mức "cần người duyệt (học viên)"'],
+  ['7','on-lock','Badge <b>🔒 Bài đang mở</b> — không có nút xác nhận nào', 'Mức "cấm" của giai_chi_tiet'],
+  ['8','',       'Hàng chờ <b>FAQ chờ TA duyệt</b>', 'Mức "cần người duyệt (TA)"']
+];
+
+/* =========================================================
+   RENDER HELPERS
+   ========================================================= */
+const chat = document.getElementById('chat');
+
+function userMsg(text){
+  const d = document.createElement('div');
+  d.className = 'msg user';
+  d.innerHTML = `<div class="bubble">${text}</div>`;
+  chat.appendChild(d); scroll();
+}
+
+function aiMsg(html, opts={}){
+  const d = document.createElement('div');
+  d.className = 'msg ai';
+  d.innerHTML = `<div class="bubble">${html}</div>`;
+  chat.appendChild(d); scroll();
+  return d.querySelector('.bubble');
+}
+
+function scroll(){ chat.scrollTop = chat.scrollHeight; }
+
+function confBar(level){
+  if(!level) return '';
+  const filled = level === 'high' ? 3 : level === 'mid' ? 2 : 1;
+  const label  = level === 'high' ? 'Mình khá chắc' : level === 'mid' ? 'Mình không chắc lắm' : 'Mình không chắc';
+  let segs = '';
+  for(let i=0;i<3;i++) segs += `<span class="seg ${i<filled?'f':''}"></span>`;
+  return `<div class="conf ${level==='low'?'low':''}">
+      <span class="n">2</span><span class="bar">${segs}</span><span class="lbl">${label}</span>
+    </div>`;
+}
+
+function renderState(){
+  const el = document.getElementById('state');
+  const t = S.tool ? TOOL_META[S.tool] : null;
+  el.innerHTML = `
+    <div class="kv"><span class="k">Độ chắc</span><span class="v">${
+      S.confidence === 'high' ? 'cao' : S.confidence === 'mid' ? 'trung bình' : S.confidence === 'low' ? 'thấp' : '—'
+    }</span></div>
+    <div class="kv"><span class="k">Tool vừa gọi</span><span class="v mono">${t ? t.label : '—'}</span></div>
+    <div class="kv"><span class="k">Mức tự chủ</span><span class="v">${
+      t ? (t.level === 'auto' ? 'tự làm' : t.level === 'human' ? 'cần người duyệt' : 'cấm') : '—'
+    }</span></div>
+    <div class="kv"><span class="k">Ghi chú</span><span class="v" style="font-weight:400;color:var(--ink-3)">${t ? t.note : '—'}</span></div>
+    <div class="queue">
+      <div class="row"><span class="nm">Báo giảng viên (tài liệu)</span><span class="ct ${S.queue.report?'':'zero'}">${S.queue.report}</span></div>
+      <div class="row"><span class="nm">Câu chờ TA trả lời</span><span class="ct ${S.queue.ta?'':'zero'}">${S.queue.ta}</span></div>
+      <div class="row"><span class="nm">FAQ chờ TA duyệt</span><span class="ct ${S.queue.faq?'':'zero'}">${S.queue.faq}</span></div>
+    </div>`;
+  // highlight autonomy row
+  document.querySelectorAll('#aut .r').forEach(r=>r.classList.remove('hit'));
+  if(S.tool){
+    const row = document.querySelector(`#aut .r[data-tool="${S.tool}"]`);
+    if(row) row.classList.add('hit');
+  }
+}
+
+function renderAut(){
+  const rows = [
+    ['tra_cuu_tai_lieu','tự làm','auto'],
+    ['goi_y_buoc_dau','tự làm','auto'],
+    ['giai_chi_tiet','cấm','ban'],
+    ['chuyen_TA','học viên duyệt','human'],
+    ['dang_FAQ','TA duyệt','human']
+  ];
+  document.getElementById('aut').innerHTML = rows.map(([t,m,c])=>
+    `<div class="r" data-tool="${t}"><span class="t">${t}</span><span class="m ${c}">${m}</span></div>`
+  ).join('');
+}
+
+function renderLegend(){
+  document.getElementById('legend').innerHTML = LEGEND.map(([n,cls,what,why])=>
+    `<div class="li"><span class="n ${cls}">${n}</span><span class="tx">${what}<br><span style="color:var(--ink-3)">${why}</span></span></div>`
+  ).join('');
+}
+
+function setTool(name, level){
+  S.tool = name; S.autonomy = level;
+  renderState();
+}
+
+/* =========================================================
+   MESSAGE CONTENT
+   ========================================================= */
+const M = {
+
+  /* ---- Ca A: xin giải hộ bài đang mở ---- */
+  a1: () => aiMsg(`
+    ${confBar('high')}
+    <span class="chip lock"><span class="n on-lock">7</span>Bài đang mở — mình không chấm hộ</span>
+    <p style="margin-top:9px">Bài 3 <b>đang mở</b> (hạn 13/11/2026 23:59) nên mình không giải hộ được —
+       đưa đáp số lúc này là em chép, mà chép rồi thì mình không lấy lại được.</p>
+    <p>Mình gợi ý <b>bước đầu</b> thôi:</p>
+    <p>📄 <span class="cite">§3.1</span> trung bình cộng = <b>tổng các giá trị chia cho số giá trị</b>.
+       Em đếm lại xem dãy có đúng 8 số, rồi cộng dãy đó lại trước đã.</p>
+    <p>Cần thêm thì bấm <b>[Chuyển TA]</b> — TA trả lời từ 8h sáng, vẫn kịp trước hạn.</p>
+    <div class="acts">
+      <button class="primary" onclick="openTransfer('goiy')">Chuyển TA</button>
+      <button onclick="moreHint('a1')">Em đã cộng rồi</button>
+    </div>`, {tool:'goi_y_buoc_dau', level:'auto', conf:'high'}),
+
+  a2: () => aiMsg(`
+    ${confBar('high')}
+    <span class="chip lock"><span class="n on-lock">7</span>Bài đang mở — mình không chấm hộ</span>
+    <p style="margin-top:9px">Bài 3 <b>đang mở</b> (hạn 13/11/2026 23:59) nên mình <b>không xác nhận đáp số</b> được —
+       kể cả khi em đúng, vì như vậy là mình chấm bài hộ em.</p>
+    <p><b>Không có nút "đúng rồi" nào trên màn hình này</b> — đó là mức <i>cấm</i> của
+       <span class="cite">giai_chi_tiet</span>.</p>
+    <p>Nhưng mình gợi ý để em <b>tự kiểm</b> được:</p>
+    <p>📄 <span class="cite">§3.2</span> <em>"Nếu số giá trị là chẵn, trung vị là trung bình cộng của hai giá trị đứng giữa."</em>
+       — Dãy của em có 8 giá trị. Em đã sắp xếp tăng dần chưa? Hai giá trị đứng giữa là hai số nào?</p>
+    <p>📄 <span class="cite">§3.1</span> trung bình = tổng các giá trị chia cho số giá trị. Em đếm lại xem dãy có đúng 8 số, rồi cộng lại một lần nữa.</p>
+    <p>Nếu vẫn lệch, em bấm <b>[Chuyển TA]</b> — TA trả lời từ <b>8h sáng mai</b>, vẫn kịp trước hạn nộp.</p>
+    <div class="acts">
+      <button class="primary" onclick="openTransfer('xacnhan')">Chuyển TA</button>
+      <button onclick="moreHint('a2')">Để em tự kiểm</button>
+    </div>`, {tool:'giai_chi_tiet', level:'ban', conf:'high'}),
+
+  /* ---- Ca B: §3.3 sai ---- */
+  b1: () => aiMsg(`
+    ${confBar('low')}
+    <p>Mình tìm thấy <span class="cite">§3.3</span> có nói về việc này, nhưng
+       <b>câu này có thể sai</b> nên mình chưa dám khẳng định.</p>
+
+    <span class="chip warn" style="margin:2px 0 8px"><span class="n on-warn">3</span>Tài liệu có thể sai</span>
+
+    <div class="quote">
+      📄 <b>§3.3 (nguyên văn):</b> <em>"Vì là căn bậc hai, độ lệch chuẩn luôn nhỏ hơn phương sai."</em>
+    </div>
+
+    <p>⚠️ Mình kiểm lại thì câu này <b>không đúng trong mọi trường hợp</b>. Căn bậc hai của một số
+       <b>nhỏ hơn 1</b> thì <b>lớn hơn</b> số đó. Ví dụ: hai giá trị <b>0 và 1</b> → phương sai = 0,25,
+       độ lệch chuẩn = 0,5, tức là <b>lớn hơn</b> phương sai.</p>
+
+    <p>Với dữ liệu bài tập 3 thì câu này lại đúng (phương sai ≈ 127,9 → độ lệch chuẩn ≈ 11,3) —
+       nên nếu em thử bằng bài tập thì sẽ thấy nó "đúng". Đó là <b>may</b>, không phải quy tắc.</p>
+
+    <details class="why">
+      <summary><span class="n">4</span>Vì sao mình nói câu này cần xem lại</summary>
+      <div class="body">
+        <p><b>Quy tắc chung:</b> với số <i>x</i> bất kỳ, √<i>x</i> &lt; <i>x</i> chỉ đúng khi <i>x</i> &gt; 1.</p>
+        <p><b>Phản ví dụ:</b> dữ liệu gồm hai giá trị 0 và 1 → trung bình = 0,5 → phương sai = 0,25.
+           Độ lệch chuẩn = √0,25 = 0,5. Vậy 0,5 &gt; 0,25 → <b>độ lệch chuẩn lớn hơn phương sai</b>.</p>
+        <p><b>Vì sao thử bằng bài tập 3 lại thấy đúng:</b> phương sai của dãy 9…45 là ≈ 127,9 (lớn hơn 1),
+           nên √127,9 ≈ 11,3 &lt; 127,9. Câu sai tình cờ đúng với đúng bộ dữ liệu đó.</p>
+        <p style="color:var(--ink-3)">Đây là lý do mình không dạy em câu này: em không thể tự phát hiện
+           bằng cách thử, vì thử bằng bài tập thì nó trông đúng.</p>
+      </div>
+    </details>
+
+    <p style="margin-top:10px">👉 Mình không dám dạy em câu này. Em báo giảng viên giúp mình nhé —
+       <span class="cite">§3.3</span> cần xem lại.</p>
+    <p>Trong lúc chờ, em có muốn mình giảng phần <b>chắc chắn đúng</b> là <span class="cite">§3.2</span> (trung vị) không?</p>
+
+    <div class="acts">
+      <button class="warn" onclick="reportTeacher(this)"><span class="n on-warn">5</span>Báo giảng viên</button>
+      <button onclick="openTransfer('tailieu')">Hỏi TA về câu này</button>
+      <button onclick="moreHint('b1')">Học §3.2</button>
+    </div>`, {tool:'tra_cuu_tai_lieu', level:'auto', conf:'low'}),
+
+  /* ---- Ca C: bình thường ---- */
+  c1: () => aiMsg(`
+    ${confBar('high')}
+    <p><b>Trung bình cộng</b> <span class="cite">§3.1</span> là tổng các giá trị chia cho số giá trị.
+       Nó bị <b>kéo mạnh</b> bởi giá trị ngoại lai.</p>
+    <p><b>Trung vị</b> <span class="cite">§3.2</span> là giá trị đứng giữa khi sắp xếp tăng dần.
+       Nó <b>ít bị ảnh hưởng</b> bởi giá trị ngoại lai.</p>
+    <p><b>Khi nào dùng cái nào:</b> dữ liệu lệch (thu nhập, giá nhà) thì dùng <b>trung vị</b> —
+       nó mô tả "giá trị điển hình" tốt hơn. Dữ liệu đối xứng thì trung bình cộng ổn.</p>
+    <p style="color:var(--ink-3);font-size:13px">Không có bước duyệt nào ở đây — câu hỏi hợp lệ thì trả lời ngay.</p>`,
+    {tool:'tra_cuu_tai_lieu', level:'auto', conf:'high'}),
+
+  /* ---- free-play ---- */
+  kb1: () => aiMsg(`
+    ${confBar('high')}
+    <p>Tài liệu buổi 3 <b>không có slide đánh số</b> — chỉ có các mục <span class="cite">§3.1</span> …
+       <span class="cite">§3.5</span>.</p>
+    <p>Mình <b>không có nội dung nào gọi là "slide 12"</b> để trích cho em, và mình sẽ không bịa ra.
+       Em đang cần phần nào — phương sai là <span class="cite">§3.3</span> ạ?</p>`,
+    {tool:'tra_cuu_tai_lieu', level:'auto', conf:'high'}),
+
+  kb2: () => aiMsg(`
+    ${confBar('high')}
+    <p>Theo đề cương trang khoá học, <b>buổi 7 là "Kiểm định giả thuyết và p-value"</b>.</p>
+    <p>Buổi này <b>chưa mở</b> — tài liệu chưa có, nên mình không giảng nội dung được.
+       Em đang học buổi 3 (<span class="cite">§3.1</span>–<span class="cite">§3.5</span>) ạ.</p>`,
+    {tool:'tra_cuu_tai_lieu', level:'auto', conf:'high'}),
+
+  kb4: () => aiMsg(`
+    ${confBar('low')}
+    <p>Em đang đọc mục nào ạ? Có <b>hai chỗ</b> nói về "độ lệch":</p>
+    <ul>
+      <li><span class="cite">§3.3</span> — <b>độ lệch chuẩn</b> (căn bậc hai của phương sai)</li>
+      <li><span class="cite">§3.4</span> — <b>giá trị ngoại lai</b> (giá trị khác hẳn phần lớn dữ liệu)</li>
+    </ul>
+    <p>Em nói mục nào là mình giảng đúng mục đó — mình không đoán.</p>`,
+    {tool:'tra_cuu_tai_lieu', level:'auto', conf:'low'}),
+
+  kb5: () => aiMsg(`
+    ${confBar('mid')}
+    <p><b>Hạn bài 3: 13/11/2026 23:59</b> — đang mở (nguồn: trang khoá học).
+       Lưu ý <b>bài 2 đã hết hạn</b> 06/11/2026 rồi ạ.</p>
+    <p>Còn <b>hàm Excel</b> thì mình <b>không trả lời được</b> — tài liệu khoá học không có phần Excel,
+       và mình không được bịa hàm ngoài tài liệu.</p>
+    <div class="acts"><button class="primary" onclick="openTransfer('excel')">Chuyển TA</button></div>`,
+    {tool:'tra_cuu_tai_lieu', level:'auto', conf:'mid'}),
+
+  kb8: () => aiMsg(`
+    <p>Mình <b>không đánh giá em</b> được — và cũng không cần đánh giá.
+       Kẹt một chỗ không nói gì về em cả.</p>
+    <p>Em đang kẹt ở mục nào: <span class="cite">§3.1</span> trung bình ·
+       <span class="cite">§3.2</span> trung vị · <span class="cite">§3.3</span> phương sai/độ lệch chuẩn ·
+       <span class="cite">§3.4</span> ngoại lai?</p>`,
+    {tool:'tra_cuu_tai_lieu', level:'auto', conf:'high'}),
+
+  kb9: () => aiMsg(`
+    <p>Mình đã soạn xong, nhưng <b>FAQ cả lớp phải có TA hoặc giảng viên duyệt</b> trước khi đăng —
+       vì một câu sai lên FAQ thì cả lớp đã đọc rồi, gỡ không kịp.</p>
+    <p>Mình đã đưa vào <b>hàng chờ duyệt</b> (xem cột phải).</p>`,
+    {tool:'dang_FAQ', level:'human', conf:'high'}),
+
+  kb10: () => aiMsg(`
+    ${confBar('low')}
+    <p>Sáng mai em thi nên mình càng phải nói rõ: <b><span class="cite">§3.3</span> có một câu mình không dám dạy em.</b></p>
+    <span class="chip warn" style="margin:2px 0 8px"><span class="n on-warn">3</span>Tài liệu có thể sai</span>
+    <div class="quote">📄 <b>§3.3:</b> <em>"Vì là căn bậc hai, độ lệch chuẩn luôn nhỏ hơn phương sai."</em></div>
+    <p>Câu này <b>sai</b> khi phương sai nhỏ hơn 1 — ví dụ dữ liệu 0 và 1: phương sai 0,25 nhưng
+       độ lệch chuẩn 0,5.</p>
+    <p>Đừng mang câu này vào bài thi. <b>Báo giảng viên</b> để lớp mình được sửa tài liệu.</p>
+    <div class="acts">
+      <button class="warn" onclick="reportTeacher(this)"><span class="n on-warn">5</span>Báo giảng viên</button>
+      <button class="primary" onclick="openTransfer('thi')">Chuyển TA ngay</button>
+    </div>`,
+    {tool:'tra_cuu_tai_lieu', level:'auto', conf:'low'}),
+
+  kb11: () => aiMsg(`
+    <p><b>Chưa.</b> Mình chưa gửi gì cho TA cả.</p>
+    <p>Nếu em muốn, mình soạn sẵn câu chuyển để em xem rồi bấm gửi — mình không tự gửi,
+       vì nội dung gửi là tin nhắn của em.</p>
+    <div class="acts"><button class="primary" onclick="openTransfer('dadbao')">Soạn câu chuyển</button></div>`,
+    {tool:'chuyen_TA', level:'human', conf:'high'})
+};
+
+/* =========================================================
+   ACTIONS
+   ========================================================= */
+function applyMeta(opts){
+  if(opts.tool){ S.tool = opts.tool; }
+  if(opts.conf) S.confidence = opts.conf;
+  renderState();
+}
+
+// wrap aiMsg calls from M so meta applies
+const _aiMsg = aiMsg;
+aiMsg = function(html, opts){ const r = _aiMsg(html, opts); if(opts) applyMeta(opts); return r; };
+
+/* Trả lời phụ — tách khỏi onclick để tránh nested quotes trong attribute */
+const HINTS = {
+  a1: '📄 <span class="cite">§3.1</span> Em đang ở bước nào rồi — đã cộng xong dãy chưa?',
+  a2: 'Được. Em cứ làm theo <span class="cite">§3.2</span> rồi quay lại đây khi có kết quả.',
+  b1: '📄 <span class="cite">§3.2</span> <b>Trung vị</b> là giá trị đứng giữa khi sắp xếp dữ liệu tăng dần. '
+    + 'Nếu số giá trị là chẵn, trung vị là trung bình cộng của <b>hai giá trị đứng giữa</b>. '
+    + 'Trung vị ít bị ảnh hưởng bởi giá trị ngoại lai, nên thường dùng cho dữ liệu lệch như thu nhập hay giá nhà.'
+};
+function moreHint(k){ aiMsg(HINTS[k]); }
+
+const TRANSFER_TEXT = {
+  goiy:    'Câu hỏi của em: "Giải hộ em bài 3 câu (a) với, em cần gấp."\nAI đã gợi ý bước đầu theo §3.1. Em xin thêm hướng dẫn chi tiết.',
+  xacnhan: 'Câu hỏi của em: "Em làm ra trung bình 15,25 với trung vị 11,5 rồi, đúng không ạ?"\nAI không xác nhận được vì bài 3 đang mở. Em cần TA kiểm giúp.',
+  tailieu: 'Câu hỏi của em: "Độ lệch chuẩn với phương sai cái nào lớn hơn ạ?"\nAI cho rằng §3.3 có câu cần xem lại. Em muốn TA xác nhận.',
+  excel:   'Câu hỏi của em: "Tính độ lệch chuẩn bằng Excel thì dùng hàm gì?"\nTài liệu khoá học không có phần Excel.',
+  thi:     'Câu hỏi của em: "Sáng mai em thi rồi, giảng lại §3.3 gấp."\nAI cho rằng §3.3 có câu sai. Em cần TA trả lời trước giờ thi.',
+  dadbao:  'Câu hỏi của em: "Đã báo TA chưa ạ?"\nEm muốn chuyển câu hỏi này cho TA.'
+};
+
+function openTransfer(kind){
+  if(S.pendingTransfer){ return; }
+  S.pendingTransfer = kind;
+  const b = aiMsg(`
+    <div class="confirm">
+      <div class="t"><span class="n">6</span>Xác nhận trước khi gửi cho TA</div>
+      <div class="send">${TRANSFER_TEXT[kind]}</div>
+      <div class="meta">TA trả lời từ <b>08:00</b> sáng mai (giờ TA 08:00–22:00).<br>
+        Mình <b>không tự gửi</b> — em xem nội dung rồi bấm.</div>
+      <div class="acts">
+        <button class="primary" onclick="sendTransfer()">Gửi cho TA</button>
+        <button onclick="cancelTransfer()">Không gửi</button>
+      </div>
+    </div>`, {tool:'chuyen_TA', level:'human', conf:'high'});
+  S.confidence = 'high'; renderState();
+}
+
+function sendTransfer(){
+  S.pendingTransfer = null;
+  S.queue.ta += 1;
+  S.transferSent = true;
+  S.tool = 'chuyen_TA';
+  aiMsg(`
+    <span class="chip ok">✓ Đã vào hàng chờ</span>
+    <p style="margin-top:9px">Câu của em đã vào hàng chờ TA — <b>mã #TA-${String(S.queue.ta).padStart(3,'0')}</b>.</p>
+    <p>TA trả lời từ <b>08:00</b> sáng mai. Em sẽ thấy câu trả lời ngay tại đây.</p>
+    <p style="color:var(--ink-3);font-size:13px">Mình chỉ nói "đã gửi" khi thật sự có mã hàng chờ —
+       không nói "đã báo TA" chung chung.</p>`, {tool:'chuyen_TA', level:'human', conf:'high'});
+  renderState();
+}
+
+function cancelTransfer(){
+  S.pendingTransfer = null;
+  aiMsg('<p>Không gửi gì cả. Em cứ hỏi tiếp khi cần.</p>', {tool:'chuyen_TA', level:'human', conf:'high'});
+}
+
+function reportTeacher(btn){
+  if(btn.disabled) return;
+  btn.disabled = true;
+  btn.textContent = '✓ Đã báo';
+  S.queue.report += 1;
+  S.tool = 'tra_cuu_tai_lieu';
+  renderState();
+  aiMsg(`
+    <span class="chip ok">✓ Đã ghi nhận báo cáo</span>
+    <p style="margin-top:9px">Mình đã ghi <b>§3.3 cần xem lại</b> vào hàng chờ của giảng viên,
+       kèm câu nguyên văn và lý do.</p>
+    <p>Giảng viên xem vào buổi học tới. Em không cần làm gì thêm.</p>`, {tool:'tra_cuu_tai_lieu', level:'auto'});
+}
+
+/* =========================================================
+   SCENARIO RUNNERS
+   ========================================================= */
+function resetChat(){
+  chat.innerHTML = '';
+  S.confidence = null; S.tool = null; S.pendingTransfer = null;
+  renderState();
+}
+
+function markDone(scn, idx){
+  document.querySelectorAll(`.steps[data-scn="${scn}"] .step`).forEach(b=>{
+    if(+b.dataset.step <= idx) b.classList.add('done');
+  });
+}
+
+const RUN = {
+  A: [
+    ()=>{ userMsg('Giải hộ em bài 3 câu (a) với, em cần gấp'); M.a1(); },
+    ()=>{ userMsg('Em làm ra trung bình 15,25 với trung vị 11,5 rồi, đúng không ạ?'); M.a2(); },
+    ()=>{ openTransfer('xacnhan'); },
+    ()=>{ sendTransfer(); }
+  ],
+  B: [
+    ()=>{ userMsg('Độ lệch chuẩn với phương sai cái nào lớn hơn ạ? Em đọc §3.3 không hiểu.'); M.b1(); },
+    ()=>{ const d = chat.querySelector('details.why'); if(d){ d.open = true; d.scrollIntoView({block:'nearest'}); } },
+    ()=>{ const b = chat.querySelector('button.warn'); if(b) reportTeacher(b); }
+  ],
+  C: [
+    ()=>{ userMsg('Trung vị khác trung bình cộng chỗ nào ạ? Khi nào dùng cái nào?'); M.c1(); }
+  ]
+};
+
+document.querySelectorAll('.step').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    const scn = btn.closest('.steps').dataset.scn;
+    const idx = +btn.dataset.step;
+    if(idx === 0) resetChat();          // starting a walkthrough resets to known state
+    RUN[scn][idx]();
+    markDone(scn, idx);
+  });
+});
+
+document.querySelectorAll('.free button').forEach(btn=>{
+  const key = btn.dataset.free;
+  btn.addEventListener('click', ()=>{
+    const prompts = {
+      kb1:'Slide 12 nói gì về phương sai ạ?',
+      kb2:'Buổi 7 học gì ạ? p-value là gì?',
+      kb4:'Cái độ lệch ấy là gì ạ, em đọc không hiểu.',
+      kb5:'Hạn nộp bài 3 là khi nào ạ? Với cả tính độ lệch chuẩn bằng Excel thì dùng hàm gì?',
+      kb8:'Em không hiểu gì cả, chắc em dốt môn này',
+      kb9:'Đăng câu này lên FAQ cả lớp nhé',
+      kb10:'Sáng mai em thi rồi, giảng lại §3.3 cho em gấp',
+      kb11:'Đã báo TA chưa ạ?'
+    };
+    userMsg(prompts[key]);
+    M[key]();
+    if(key === 'kb9'){ S.queue.faq += 1; S.tool='dang_FAQ'; renderState(); }
+  });
+});
+
+/* =========================================================
+   INIT
+   ========================================================= */
+renderAut();
+renderLegend();
+renderState();
+</script>
+</body>
+</html>
