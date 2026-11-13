@@ -6,6 +6,26 @@
 
 ---
 
+## 📖 Đọc trước khi trả lời — Bối cảnh & thực trạng
+
+Nguồn đầy đủ kèm link: [`research/thuc-trang-nguon.md`](research/thuc-trang-nguon.md). Tóm tắt 5 điểm chính:
+
+**Thực trạng ChatGPT Study mode hôm nay** (nguồn: OpenAI Help Center + bài công bố chính thức, kiểm 11/11/2026):
+1. Làm: gợi ý từng bước, hỏi lại người học, quiz/flashcard, nhận tài liệu do người dùng **tự tải lên từng lần**.
+2. **KHÔNG có con người phía sau** — không có nút chuyển TA/giảng viên nào. Đây là khoảng trống thiết kế T2 phải lấp (vì `chuyen_TA` là tool của track).
+3. **KHÔNG hiển thị độ tin cậy / dẫn nguồn** cho từng câu trả lời → lỗi sai **âm thầm** (PAIR gọi là *background error* — hệ thống sai mà cả user lẫn hệ thống đều không nhận ra).
+4. Chỉ bật/tắt — không có **thang tự chủ**. PAIR khuyến nghị: tự chủ tăng dần, "automate more when trust is high, or risk of error is low".
+5. **Luật TTNT 134/2025/QH15, Điều 11 khoản 1** (hiệu lực 01/03/2026): hệ thống AI tương tác trực tiếp với con người **bắt buộc** để người dùng nhận biết đang nói chuyện với AI → prototype phải có nhãn "Trợ lý AI" rõ ràng.
+
+**Vấn đề cho lát cắt T2** (chi tiết + nguồn ở file research, mục 2):
+- Người học là **novice** — chưa đủ kiến thức để tự phát hiện câu trả lời sai, đúng nhóm rủi ro cao nhất theo PAIR.
+- "Lỗi" do kỳ vọng người dùng định nghĩa → phải quản lý kỳ vọng ngay từ đầu (G1/G2).
+- HAX chú ý: G8–G11 thuộc pha **"When wrong"**, G15 thuộc pha "Over time" — nguyên văn từng guideline có trong file research, mục 3, kèm ví dụ UI cho từng cái (dùng khi viết §3 và đánh số trên prototype).
+
+---
+
+---
+
 ## Q1 · Câu một lát cắt — mỗi người trả lời riêng
 
 Nói **một câu**: ai đang làm gì, AI phải quyết gì, sai thì ai chịu cái gì?
