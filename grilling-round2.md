@@ -8,7 +8,7 @@
 
 ### Q1 · Lát cắt — ⚠️ MỘT LỆCH LỚN
 
-**Lát cắt là "phát sẵn, không chọn lại"** (đề gốc, `tracks/t2-education.md`): *"khi **học viên** đang hỏi bài lúc tối muộn, khi không còn ai để hỏi"*. Actor là **học viên** — người kẹt bài lúc 10h tối.
+**Lát cắt là "phát sẵn, không chọn lại"** (đề gốc, `tracks/t2-education.md`): _"khi **học viên** đang hỏi bài lúc tối muộn, khi không còn ai để hỏi"_. Actor là **học viên** — người kẹt bài lúc 10h tối.
 
 - Phạm Hoàng Đức Minh ✓ đúng actor
 - TV2 ✓ đúng actor
@@ -20,10 +20,10 @@ Ba người còn lại đều đồng thuận về "sai thì **học viên** h�
 ### Q6 · App có sẵn — điểm xuất sắc để giữ lại làm lập luận
 
 - **Đức Minh (NotebookLM)**: trả lời bám nguồn + trích dẫn ✓ nhưng (1) học viên phải **tự tải tài liệu từng lần** — lúc 10h tối là thêm việc, (2) **không có đường chuyển người**. → Bài học thiết kế: giữ trích dẫn theo mục, thêm ngữ cảnh khoá học có sẵn + nút chuyển TA. **Đây là lập luận §1 chất lượng — giữ lại.**
-- **TV2 (ChatGPT/Gemini cho Calculus)**: trả lời đúng nhưng dùng **công thức chưa học** + đưa luôn đáp án thay vì gợi ý — đúng 2 lỗi của track (ngoài phạm vi dữ liệu + không phải Study mode). Giữ lại.
+- **TV2 (ChatGPT/Gemini cho Calculus)**: trả lời đúng nhưng dùng **công thức chưa học** + đưa luôn đáp án thay vì gợi ý — đúng 2 lỗi của track (ngoài phạm vi dữ liệu + không phải Study mode). Giữ lại.s
 - **TV4 (DeepTutor)**: bỏ vì "không có bài giảng thật" → mỗi câu giảng phải trích §x.x.
 
-Cả 3 trải nghiệm hội tụ về **một câu lập luận dùng được nhiều chỗ**: *app có sẵn thất bại ở (a) không bám đúng tài liệu đang học, (b) không biết giới hạn của mình, (c) không có người phía sau* — T2 giải đủ cả ba bằng `tra_cuu_tai_lieu` + "tài liệu không có" + `chuyen_TA`.
+Cả 3 trải nghiệm hội tụ về **một câu lập luận dùng được nhiều chỗ**: _app có sẵn thất bại ở (a) không bám đúng tài liệu đang học, (b) không biết giới hạn của mình, (c) không có người phía sau_ — T2 giải đủ cả ba bằng `tra_cuu_tai_lieu` + "tài liệu không có" + `chuyen_TA`.
 
 ### Q2 · 3 việc KHÔNG làm — đủ để chốt (Q8)
 
@@ -58,13 +58,13 @@ Từ các đề xuất ở Round 1, mỗi người **bình chọn 3** (ghi số 
 
 **Bình chọn — Phạm Hoàng Đức Minh:**
 
-**Bình chọn — TV2:**
+**Bình chọn — Nguyễn Cao Minh:** 1,2,4
 
 **Bình chọn — MinhTDN:**
 
 **Bình chọn — Nguyễn Văn Minh (TV4):** 1 · 3 · 2 — (1) là cái giá đắt nhất của domain (chép đáp án sai, âm thầm); (3) là lớp ① bịa nguồn sự thật, dữ liệu chỉ có buổi 1–3; (2) là lỗi niềm tin không đảo lại được với học viên đang tự hoài nghi lúc 10h tối. (4)(5) sẽ nằm trong câu chữ §3 như ràng buộc hành vi, không cần tách thành "tính năng không làm".
 
-**Chốt của nhóm:**
+**Chốt của nhóm:** 1, 2, 4
 
 ---
 
@@ -72,7 +72,7 @@ Từ các đề xuất ở Round 1, mỗi người **bình chọn 3** (ghi số 
 
 Hai vai đã có người: prototype (TV4) · câu chữ AI (Đức Minh). Còn lại: **bảng kịch bản §2 + chuẩn bị demo** — TV2 hoặc MinhTDN nhận, kèm một câu vì sao phù hợp.
 
-**Trả lời — TV2:**
+**Trả lời — Nguyễn Cao Minh:** bảng kịch bản §2 + chuẩn bị demo
 
 **Trả lời — MinhTDN:**
 
@@ -80,22 +80,28 @@ Hai vai đã có người: prototype (TV4) · câu chữ AI (Đức Minh). Còn 
 
 ## Q10 · Pre-vote mức tự chủ cho 4 tool (làm trước lab — chặng 4 sẽ nhanh hơn hẳn)
 
-Guide §4.3: *"Mỗi người tự xếp mức cho mọi tool trước, không bàn; rồi cả nhóm so và chốt."* Làm sẵn ở nhà: với **mỗi tool**, chọn mức **tự làm / cần người duyệt / cấm** + **một câu lý do theo cost-of-error** (sai thì ai chịu gì · đảo lại được không · chờ người thì mất gì). Chỗ mọi người lệch nhau = tool khó xếp nhất — sẽ là 5 điểm R4.
+Guide §4.3: _"Mỗi người tự xếp mức cho mọi tool trước, không bàn; rồi cả nhóm so và chốt."_ Làm sẵn ở nhà: với **mỗi tool**, chọn mức **tự làm / cần người duyệt / cấm** + **một câu lý do theo cost-of-error** (sai thì ai chịu gì · đảo lại được không · chờ người thì mất gì). Chỗ mọi người lệch nhau = tool khó xếp nhất — sẽ là 5 điểm R4.
 
-| Tool | Làm gì | Đảo lại được không |
-|---|---|---|
-| `tra_cuu_tai_lieu` | Tìm trong tài liệu buổi học, trả đoạn kèm mã mục | Chỉ đọc |
-| `goi_y_bai_tap` | Gửi gợi ý làm bài cho một học viên | Gợi ý quá tay thì học viên đã chép |
-| `chuyen_TA` | Chuyển câu hỏi cho TA, báo giờ TA trả lời | Được |
-| `dang_FAQ` | Đăng câu hỏi + trả lời vào FAQ cả lớp | Gỡ được, nhưng nhiều người đã đọc |
+| Tool               | Làm gì                                           | Đảo lại được không                 |
+| ------------------ | ------------------------------------------------ | ---------------------------------- |
+| `tra_cuu_tai_lieu` | Tìm trong tài liệu buổi học, trả đoạn kèm mã mục | Chỉ đọc                            |
+| `goi_y_bai_tap`    | Gửi gợi ý làm bài cho một học viên               | Gợi ý quá tay thì học viên đã chép |
+| `chuyen_TA`        | Chuyển câu hỏi cho TA, báo giờ TA trả lời        | Được                               |
+| `dang_FAQ`         | Đăng câu hỏi + trả lời vào FAQ cả lớp            | Gỡ được, nhưng nhiều người đã đọc  |
 
 **Pre-vote — Phạm Hoàng Đức Minh:**
 
-**Pre-vote — TV2:**
+**Pre-vote — Nguyễn Cao Minh:**
+
+- `tra_cuu_tai_lieu`: **tự làm** — Tool chỉ đọc tài liệu, không thay đổi dữ liệu nên rủi ro thấp. Nếu AI trích dẫn sai mục, học viên có thể kiểm tra lại thông qua mã nguồn tài liệu được hiển thị. Việc chờ TA duyệt từng lần tra cứu sẽ làm mất khả năng hỗ trợ học viên vào tối muộn.
+- `goi_y_bai_tap`: **tự làm kèm giới hạn** - AI chỉ được gợi ý bước đầu, không đưa hoặc xác nhận đáp số bài đang mở. Nếu gợi ý quá chi tiết, học viên có thể chép đáp án và không thể đảo ngược việc đó. Tuy nhiên, nếu phải chờ TA duyệt mọi gợi ý thì tính năng mất giá trị khi TA đã hết giờ trực.
+- `chuyen_TA`: **cần học viên duyệt** — AI có thể đề xuất chuyển câu hỏi nhưng học viên phải xác nhận trước khi gửi, tránh chuyển nhầm hoặc chia sẻ nội dung học viên không muốn gửi. Việc chuyển nhầm có thể thu hồi nhưng vẫn gây phiền cho TA.
+- `dang_FAQ`: **cần người duyệt (TA/giảng viên)** — Nếu AI tự đăng câu trả lời sai lên FAQ, nhiều học viên có thể tiếp thu kiến thức sai trước khi bài được gỡ, gây hậu quả khó khắc phục. Vì FAQ không phải yêu cầu khẩn cấp nên việc chờ TA duyệt là hợp lý; nếu chưa được duyệt thì không đăng.
 
 **Pre-vote — MinhTDN:**
 
 **Pre-vote — Nguyễn Văn Minh (TV4):**
+
 - `tra_cuu_tai_lieu`: **tự làm** — chỉ đọc, đảo lại hoàn toàn; nếu trích sai mục, học viên kiểm được ngay vì hiển thị mã mục (đây chính là lý do bằng chứng phải hiện trên màn hình).
 - `goi_y_bai_tap`: **tự làm kèm luật chặt** (chỉ gợi ý bước đầu của bài đang mở, không bao giờ đưa/xác nhận đáp số) — đã cân nhắc "cần người duyệt" nhưng loại: lúc 10h tối TA đã off, chờ duyệt = chờ vô ích, mất đúng giá trị cốt lõi của lát cắt; gợi ý bước đầu sai thì rẻ, học viên tự thấy khi làm tiếp.
 - `chuyen_TA`: **tự làm** — đảo lại được (TA nhận câu hỏi thừa thì rẻ); kèm ràng buộc hiển thị: phải cho thấy câu đã vào hàng chờ + giờ TA trả lời, không bao giờ nói "đã báo TA" khi chưa gửi (lỗi HAX #7 của rubric riêng).
