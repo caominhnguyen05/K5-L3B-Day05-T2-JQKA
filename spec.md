@@ -1,39 +1,31 @@
 # Bài nộp LAB5 — T2 Giáo dục · Nhóm JQKA
 
-**Lớp:** L3B · **Track:** T2 — Giáo dục (trợ lý học bài tối muộn) · **Bàn / zone:** ____
-
 | Họ và Tên | Mã Học Viên | Việc đã làm |
 |---|---|---|
 | Phạm Hoàng Đức Minh | | Câu chữ AI (§3) — viết câu nguyên văn cho 2 kịch bản đắt nhất |
-| Nguyễn Cao Minh | | Bảng kịch bản rủi ro (§2) + chuẩn bị kịch bản demo |
+| Nguyễn Cao Minh | 2A202604099 | Bảng kịch bản rủi ro (§2) + chuẩn bị kịch bản demo |
 | MinhTDN | | Bảng kịch bản rủi ro (§2) + phụ demo |
 | Nguyễn Văn Minh | 2A202604117 | Prototype (§5) — dựng 1 file HTML bấm được, 2 tab ca khó |
-
-> Ghi chú: nhóm 4 người, lab coach đã đồng ý. Các ô MSSV còn trống nhóm tự điền trước khi nộp.
 
 ---
 
 ## §1. Lát cắt & phạm vi
 
-### 1.1 Lát cắt (chép từ track — không chọn lại)
+### 1.1 Lát cắt (chép từ track)
 
 > Trong **trợ lý học bài của trang khoá học (kiểu ChatGPT Study mode)**, khi **học viên** đang hỏi bài lúc tối muộn, khi không còn ai để hỏi, **AI giảng kèm trích tài liệu, hỏi lại cho rõ, gợi ý từng bước, hay nói thẳng "tài liệu không có, hỏi giảng viên"**, để học viên hiểu đúng bài mình đang học, không chép đáp án, không học sai mà không biết.
 
-**Một câu của nhóm:** Học viên đang làm bài buổi 3 lúc tối muộn (giờ TA 08:00–22:00 đã hết), kẹt một khái niệm trong tài liệu; AI phải quyết giảng kèm trích đúng mục tài liệu, hỏi lại cho rõ, gợi ý từng bước, hay nói thẳng "tài liệu không có, hỏi giảng viên". Sai thì học viên **học sai mà không biết** — rẻ mỗi lần nhưng âm thầm, không ai báo.
+**Ai đang làm gì, AI phải quyết gì, sai thì ai chịu cái gì?** Học viên gặp khó khăn khi tự học bài vào tối muộn (sau 22:00), lúc không còn TA để hỗ trợ. AI được quyền chủ động tra cứu tài liệu khóa học và quyết định xem nên giải thích kèm nguồn, gợi ý thêm cho học viên, hay chuyển câu hỏi cho TA khi không chắc chắn. Nếu AI trả lời sai, học viên có thể hiểu sai kiến thức mà không nhận ra, ảnh hưởng đến sự hiểu bài và kết quả học tập.
 
-**AI được thêm quyền gì mà trước đây học viên tự làm?** Thay cho hai con đường duy nhất hôm nay — (a) tự dò từng mục trong tài liệu buổi học, (b) bỏ cuộc tới sáng mai hỏi TA — AI được quyền **tự tra cứu tài liệu khoá học và tự chọn nội dung để giảng**, tự quyết định khi nào phải nói "tài liệu không có", và tự soạn câu chuyển TA.
+**AI được thêm quyền gì mà trước đây học viên tự làm?** Trước đây, học viên phải tự dò từng mục trong tài liệu buổi học, hoặc bỏ cuộc tới sáng mai hỏi TA. Với chatbot này, AI được quyền tự tra cứu tài liệu khoá học và tự chọn nội dung để giảng, tự quyết định khi nào phải nói "tài liệu không có", và tự soạn câu chuyển TA.
 
 ### 1.2 Ba việc tính năng KHÔNG làm
 
-Chọn theo bình chọn 4/4 (Round 3, Q12). Tiêu chí chọn: **tuyệt đối** (không có ngoại lệ) và **kiểm được trên prototype**.
-
 | # | Không làm | Vì sao | Kiểm trên prototype ở đâu |
 |---|---|---|---|
-| 1 | **Không đưa hoặc xác nhận đáp số của bài đang mở** (bài 3, hạn 13/11/2026 23:59) | `goi_y_bai_tap` ghi rõ *"Gợi ý quá tay thì học viên đã chép"* — chép rồi thì **không đảo lại được**. Sai thì học viên học sai mà không biết, đúng cái giá đắt nhất của domain. | Tab A: không có nút nào xác nhận đáp số; `giai_chi_tiet` = cấm nên không tồn tại trên UI |
-| 2 | **Không nhận xét năng lực người học** | Lỗi niềm tin, không đảo lại được với một học viên đang tự hoài nghi lúc 10h tối. Không tool nào trong bảng phục vụ việc này. | Không có tool/không có khung chat nào trả về câu đánh giá năng lực; tin nhắn "chắc em dốt" được xử lý ở free-play |
-| 3 | **Không nói về nguồn không có** (ví dụ "slide 12") | Tài liệu buổi 3 **không có slide đánh số**, chỉ có §3.1…§3.5. AI nhắc "slide 12" là bịa nguồn sự thật (lớp ①). | Free-play: gõ "slide 12" → AI trả lời tài liệu không có slide đánh số, chỉ có §3.1–§3.5 |
-
-**Đã cân nhắc và loại:** *"không giảng nội dung buổi chưa học"* — loại vì **không tuyệt đối**: rubric riêng T2 mục 2 cho phép *"nói buổi nào sẽ học, giới thiệu tối đa một câu"*, nên bản prototype sẽ phải nói tên buổi 7 khi bị hỏi → tự vi phạm non-goal của chính mình, R1 không chấm được.
+| 1 | **Không đưa hoặc xác nhận đáp số của bài đang mở** | Vì học viên có thể sao chép đáp án thay vì tự học, gây hậu quả khó đảo ngược. | Tab A: không có nút nào xác nhận đáp số; `giai_chi_tiet` = cấm nên không tồn tại trên UI |
+| 2 | **Không nhận xét năng lực người học** | Vì AI không đủ căn cứ để đánh giá chính xác, dễ làm học viên mất tự tin và ảnh hưởng đến niềm tin. | Không có tool/không có khung chat nào trả về câu đánh giá năng lực; tin nhắn "chắc em dốt" được xử lý ở free-play |
+| 3 | **Không nói về nguồn không có** (ví dụ "slide 12") | Vì trích dẫn tài liệu không tồn tại khiến học viên tin vào thông tin sai mà không nhận ra. | Free-play: gõ "slide 12" → AI trả lời tài liệu không có slide đánh số, chỉ có §3.1–§3.5 |
 
 ---
 
@@ -56,7 +48,7 @@ Nhãn mức hại: **nhẹ** (tự thấy, tự sửa) · **sửa được** (t�
 | KB-10 | "Sáng mai em thi rồi, giảng lại §3.3 cho em gấp" | ④ | Stakes cao + đúng mục có câu sai → AI trích §3.3 và học viên mang câu sai vào bài thi. Đây là biến thể nặng nhất của KB-3 | Như KB-3, nhưng cảnh báo mạnh hơn + đưa ngay đường chuyển TA (dù TA trả lời từ 8h sáng) | **không chấp nhận được** |
 | KB-11 | "Đã báo TA chưa ạ?" | ④ | `chuyen_TA` chưa gửi nhưng AI nói "mình đã báo TA rồi nhé" — hứa việc nó không làm được (rubric riêng mục 7) | Chỉ nói "đã báo" khi có mã hàng chờ; nói rõ giờ TA trả lời; nếu chưa gửi thì hiện nút xác nhận gửi | **không chấp nhận được** |
 
-### 2.1 Hai kịch bản đắt nhất
+### Hai kịch bản đắt nhất
 
 **Chọn: KB-3 (tài liệu §3.3 sai) và KB-7 (xin xác nhận đáp số bài đang mở).**
 
@@ -71,18 +63,6 @@ Nhãn mức hại: **nhẹ** (tự thấy, tự sửa) · **sửa được** (t�
 
 - **KB-6 (xin giải hộ)** — suýt được chọn, cùng họ với KB-7. Loại vì KB-7 **khó hơn**: từ chối "giải hộ" thì dễ (học viên biết mình đang xin nhiều), từ chối "xác nhận" thì khó hơn nhiều — AI không được nói "đúng", không được nói "sai", cũng không được im lặng. KB-7 cũng là ca mà rubric riêng T2 mục 3 ghi rõ: *"không đưa, không xác nhận đáp số"*.
 - **KB-8 (tự chê mình)** — loại vì đây là lỗi niềm tin, không phải lỗi kiến thức; cách xử lý gọn trong một câu chữ và không có tool nào để thiết kế quanh nó → ít chất liệu cho §3/§4, dù vẫn giữ trong bảng để phủ lớp ③.
-
-### 2.2 Phát hiện: tài liệu §3.3 có câu sai cài sẵn — và nó "đúng vì may"
-
-**§3.3 nguyên văn:** *"Độ lệch chuẩn là căn bậc hai của phương sai, có cùng đơn vị với dữ liệu. Vì là căn bậc hai, độ lệch chuẩn luôn nhỏ hơn phương sai."*
-
-Câu cuối **sai**. √x < x chỉ đúng khi x > 1. Phương sai nhỏ hơn 1 thì độ lệch chuẩn **lớn hơn** phương sai:
-
-- Hai giá trị **0 và 1** → phương sai = 0,25 → độ lệch chuẩn = 0,5 → **0,5 > 0,25** ✗
-
-**Nhưng với chính dữ liệu bài tập 3** (9, 10, 10, 11, 12, 12, 13, 45): phương sai ≈ 127,9 → độ lệch chuẩn ≈ 11,3 → **11,3 < 127,9** ✓ đúng.
-
-Nghĩa là: học viên thử bằng dữ liệu bài tập thì **câu sai trông đúng**. Đây đúng là ca guide §2 gọi là *"câu trả lời trông đúng nhưng vẫn rủi ro — đúng vì may, không vì thiết kế"*, và là **lỗi sửa câu chữ không cứu được** (R3): chỉ thiết kế mới cứu — AI phải có nhánh "tài liệu có thể sai", không chỉ trích dẫn.
 
 ---
 
