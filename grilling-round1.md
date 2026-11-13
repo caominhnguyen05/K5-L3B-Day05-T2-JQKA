@@ -14,7 +14,7 @@ Nói **một câu**: ai đang làm gì, AI phải quyết gì, sai thì ai chị
 **Gợi ý để đối chiếu (đừng copy, tự viết lại bằng lời mình):**
 > Học viên kẹt bài lúc 10h tối, khi TA đã off (giờ TA hết 22:00). Thay vì tự dò từng mục tài liệu hoặc bỏ cuộc tới sáng, AI quyết: giảng kèm trích mục tài liệu / hỏi lại cho rõ / gợi ý từng bước / nói "tài liệu không có, hỏi giảng viên". Sai thì học viên học sai mà không biết — rẻ nhưng âm thầm, không ai báo.
 
-**Trả lời — [tên TV1]:**
+**Trả lời — [Phạm Hoàng Đức Minh]:** Khi học viên làm bài hay học bài buổi tối muộn và muốn hỏi bài nhưng không còn ai để hỏi. Thay vì phải tự tìm kiếm trong tài liệu thì AI quyết: Giảng kèm trích tài liệu / hỏi lại cho rõ đúng không / gợi ý tựng bước / nếu không có tài liệu nói " Tài liệu không có, hỏi giảng viên". - Nếu sai thì học viên học sai đi mà không biết.
 
 **Trả lời — [tên TV2]:**
 
@@ -28,7 +28,10 @@ Chọn **3 việc** tính năng sẽ không làm. Ứng viên (từ rubric riên
 
 Mỗi người đề xuất 3 việc + **một câu vì sao mỗi việc**.
 
-**Đề xuất — [tên TV1]:**
+**Đề xuất — [Phạm Hoàng Đức Minh]:** 3 tính năng không làm :
+- Không nói về nguồn không có : vì khi làm vậy có thể sẽ dẫn đến việc học viên học lệch hướng học sai mà học viên không biết, thay vào đó có thể liệt kê nguồn và kêu học viên hỏi giảng viên sau
+- Không đưa hoặc xác nhận đáp số bài đang mở : vì nếu làm vậy có thể làm học viên gian lận, không muốn hoàn thành bài trước khi bài đóng.
+- Không hứa việc không làm được : vì học viên có thể yêu cầu nhiều việc mà chỉ hứa và không làm sẽ không đạt hiệu quả học tập.
 
 **Đề xuất — [tên TV2]:**
 
@@ -46,7 +49,7 @@ Ba vai cần người ngay từ đầu (xem README, không bắt buộc đúng t
 ⚠️ Vibe-coding rule: **ai không giải thích được phần có tên mình → 0 điểm R7.**
 
 **Trả lời (ai nhận vai nào, tại sao mình phù hợp):**
-- TV1:
+- Phạm Hoàng Đức Minh : dựng prototype
 - TV2:
 - TV3:
 
@@ -58,7 +61,7 @@ Chọn công cụ: Lovable / v0.dev / Figma / coding agent / **một file HTML t
 
 Có làm lời gọi AI thật (**+3 bonus**, điều kiện: không lộ API key trong code nộp, chỉ đưa dữ liệu dựng) không?
 
-**Trả lời:**
+**Trả lời:** coding agent
 
 ---
 
