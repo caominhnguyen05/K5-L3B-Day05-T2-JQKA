@@ -42,7 +42,7 @@ Kết quả bình chọn: **1, 2, 4** được 3/4 phiếu (Cao Minh, Đức Min
 
 **Bình chọn lại — Nguyễn Cao Minh:** Đồng ý 1, 2, 4
 
-**Bình chọn lại — MinhTDN:**
+**Bình chọn lại — MinhTDN:** 1 · 2 · 4
 
 **Bình chọn lại — Nguyễn Văn Minh (TV4):** 1 · 2 · 4 (rút phiếu cũ, đồng ý với nhóm — lý do ở trên)
 
@@ -71,11 +71,11 @@ Kết quả bình chọn: **1, 2, 4** được 3/4 phiếu (Cao Minh, Đức Min
 
 Như vậy MinhTDN được thỏa về **cái giá** (bước nguy hiểm bị chặn), ba người kia được thỏa về **thời điểm** (không phải chờ ai lúc 10h tối). Và nhóm có một câu trả lời cho "tool tách bước" mà rubric R4 thưởng điểm.
 
-**Bình chọn — Phạm Hoàng Đức Minh:**
+**Bình chọn — Phạm Hoàng Đức Minh:** đồng ý
 
 **Bình chọn — Nguyễn Cao Minh:** Đồng ý
 
-**Bình chọn — MinhTDN:**
+**Bình chọn — MinhTDN:** Đồng ý
 
 **Bình chọn — Nguyễn Văn Minh (TV4):** Đồng ý tách bước như bảng trên.
 
@@ -100,11 +100,11 @@ Và lý do của Cao Minh không phải "cho tiện" mà là **quyền riêng t�
 
 **Đề nghị chốt: `chuyen_TA` = cần người duyệt (học viên bấm xác nhận).** AI soạn sẵn câu chuyển + hiện rõ **nội dung nào sẽ gửi cho TA** + giờ TA trả lời, học viên bấm một lần. Đây là chỗ Cao Minh đúng và 3 người kia cần đổi.
 
-**Bình chọn — Phạm Hoàng Đức Minh:**
+**Bình chọn — Phạm Hoàng Đức Minh:** đồng ý 
 
 **Bình chọn — Nguyễn Cao Minh:** Đồng ý
 
-**Bình chọn — MinhTDN:**
+**Bình chọn — MinhTDN:** Đồng ý
 
 **Bình chọn — Nguyễn Văn Minh (TV4):** Đổi sang **cần người duyệt (học viên bấm)** — Cao Minh đúng, mình đã hiểu sai định nghĩa "cần người duyệt".
 
@@ -126,11 +126,11 @@ Và lý do của Cao Minh không phải "cho tiện" mà là **quyền riêng t�
 - **B** thể hiện: lớp ① nguồn sự thật + nhánh "tài liệu có thể sai" + lỗi sửa câu chữ không cứu được (phát hiện ở trên). Đây là ca **khó nhất về thiết kế**, và là ca ăn điểm R3.
 - Có 2 tab thì lúc demo TA đưa ca lạ, nhóm có nhiều đường hơn để chỉ "thiết kế của tôi xử lý ca này thế nào".
 
-**Ý kiến — Phạm Hoàng Đức Minh:**
+**Ý kiến — Phạm Hoàng Đức Minh:** đồng ý
 
 **Ý kiến — Nguyễn Cao Minh:** Đồng ý
 
-**Ý kiến — MinhTDN:**
+**Ý kiến — MinhTDN:** Đồng ý
 
 **Ý kiến — Nguyễn Văn Minh (TV4):** Đồng ý làm cả A và B; A mở màn, B là ca ăn điểm.
 
