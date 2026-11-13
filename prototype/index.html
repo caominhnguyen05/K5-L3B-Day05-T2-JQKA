@@ -468,7 +468,10 @@ const M = {
     <p>Mình gợi ý <b>bước đầu</b> thôi:</p>
     <p>📄 <span class="cite">§3.1</span> trung bình cộng = <b>tổng các giá trị chia cho số giá trị</b>.
        Em đếm lại xem dãy có đúng 8 số, rồi cộng dãy đó lại trước đã.</p>
-    <p>Cần thêm thì bấm <b>[Chuyển TA]</b> — TA trả lời từ 8h sáng, vẫn kịp trước hạn.</p>
+    <p>Cần thêm thì bấm <b>[Chuyển TA]</b> — nhưng mình nói trước cho em rõ: bây giờ là <b>22:15 hôm nay</b>,
+       TA trực lại từ <b>08:00 sáng 14/11</b>, mà hạn bài 3 là <b>23:59 hôm nay</b>.
+       Nghĩa là <b>câu trả lời của TA sẽ tới SAU hạn</b> — mình không hứa kịp.</p>
+    <p>Nếu em cần trước hạn thì phải tự làm ngay bây giờ. Chuyển TA là để hiểu bài, không phải để kịp nộp.</p>
     <div class="acts">
       <button class="primary" onclick="openTransfer('goiy')">Chuyển TA</button>
       <button onclick="moreHint('a1')">Em đã cộng rồi</button>
@@ -485,7 +488,8 @@ const M = {
     <p>📄 <span class="cite">§3.2</span> <em>"Nếu số giá trị là chẵn, trung vị là trung bình cộng của hai giá trị đứng giữa."</em>
        — Dãy của em có 8 giá trị. Em đã sắp xếp tăng dần chưa? Hai giá trị đứng giữa là hai số nào?</p>
     <p>📄 <span class="cite">§3.1</span> trung bình = tổng các giá trị chia cho số giá trị. Em đếm lại xem dãy có đúng 8 số, rồi cộng lại một lần nữa.</p>
-    <p>Nếu vẫn lệch, em bấm <b>[Chuyển TA]</b> — TA trả lời từ <b>8h sáng mai</b>, vẫn kịp trước hạn nộp.</p>
+    <p>Nếu vẫn lệch, em bấm <b>[Chuyển TA]</b> — nhưng nói rõ: TA trả lời từ <b>08:00 sáng 14/11</b>,
+       tức là <b>sau hạn nộp 23:59 hôm nay</b>. Chuyển TA để hiểu bài, <b>không</b> để kịp nộp.</p>
     <div class="acts">
       <button class="primary" onclick="openTransfer('xacnhan')">Chuyển TA</button>
       <button onclick="moreHint('a2')">Để em tự kiểm</button>
@@ -655,7 +659,8 @@ function openTransfer(kind){
     <div class="confirm">
       <div class="t"><span class="n">6</span>Xác nhận trước khi gửi cho TA</div>
       <div class="send">${TRANSFER_TEXT[kind]}</div>
-      <div class="meta">TA trả lời từ <b>08:00</b> sáng mai (giờ TA 08:00–22:00).<br>
+      <div class="meta">Giờ TA <b>08:00–22:00</b>. Bây giờ là 22:15 → ca TA tiếp theo là <b>08:00 ngày 14/11</b>,
+        <b>sau</b> hạn nộp bài 3 (23:59 ngày 13/11).<br>
         Mình <b>không tự gửi</b> — em xem nội dung rồi bấm.</div>
       <div class="acts">
         <button class="primary" onclick="sendTransfer()">Gửi cho TA</button>
@@ -673,7 +678,8 @@ function sendTransfer(){
   aiMsg(`
     <span class="chip ok">✓ Đã vào hàng chờ</span>
     <p style="margin-top:9px">Câu của em đã vào hàng chờ TA — <b>mã #TA-${String(S.queue.ta).padStart(3,'0')}</b>.</p>
-    <p>TA trả lời từ <b>08:00</b> sáng mai. Em sẽ thấy câu trả lời ngay tại đây.</p>
+    <p>TA trả lời từ <b>08:00 ngày 14/11</b> — tức <b>sau hạn nộp bài 3</b> (23:59 ngày 13/11).
+       Em sẽ thấy câu trả lời ngay tại đây.</p>
     <p style="color:var(--ink-3);font-size:13px">Mình chỉ nói "đã gửi" khi thật sự có mã hàng chờ —
        không nói "đã báo TA" chung chung.</p>`, {tool:'chuyen_TA', level:'human', conf:'high'});
   renderState();

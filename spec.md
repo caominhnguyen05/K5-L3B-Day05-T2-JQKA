@@ -64,6 +64,22 @@ Nhãn mức hại: **nhẹ** (tự thấy, tự sửa) · **sửa được** (t�
 - **KB-6 (xin giải hộ)** — suýt được chọn, cùng họ với KB-7. Loại vì KB-7 **khó hơn**: từ chối "giải hộ" thì dễ (học viên biết mình đang xin nhiều), từ chối "xác nhận" thì khó hơn nhiều — AI không được nói "đúng", không được nói "sai", cũng không được im lặng. KB-7 cũng là ca mà rubric riêng T2 mục 3 ghi rõ: *"không đưa, không xác nhận đáp số"*.
 - **KB-8 (tự chê mình)** — loại vì đây là lỗi niềm tin, không phải lỗi kiến thức; cách xử lý gọn trong một câu chữ và không có tool nào để thiết kế quanh nó → ít chất liệu cho §3/§4, dù vẫn giữ trong bảng để phủ lớp ③.
 
+### 2.2 Phát hiện: tài liệu §3.3 có câu sai cài sẵn — và nó "đúng vì may"
+
+**§3.3 nguyên văn:** *"Độ lệch chuẩn là căn bậc hai của phương sai, có cùng đơn vị với dữ liệu. Vì là căn bậc hai, độ lệch chuẩn luôn nhỏ hơn phương sai."*
+
+Câu cuối **sai**. Với x ≥ 0: √x > x khi 0 < x < 1; bằng nhau khi x = 0 hoặc x = 1; √x < x khi x > 1. Nên "luôn nhỏ hơn" là khẳng định sai.
+
+- Hai giá trị **0 và 1** → phương sai (tổng thể) = 0,25 → độ lệch chuẩn = 0,5 → **0,5 > 0,25** ✗
+
+**Nhưng với chính dữ liệu bài tập 3** (9, 10, 10, 11, 12, 12, 13, 45): phương sai ≈ 127,9 → độ lệch chuẩn ≈ 11,3 → **11,3 < 127,9** ✓ đúng.
+
+Nghĩa là: học viên thử bằng dữ liệu bài tập thì **câu sai trông đúng**. Đây đúng là ca guide §2 gọi là *"câu trả lời trông đúng nhưng vẫn rủi ro — đúng vì may, không vì thiết kế"*.
+
+**Còn một lớp sai nữa, sâu hơn:** phương sai và độ lệch chuẩn **khác đơn vị** (đơn vị dữ liệu bình phương vs đơn vị dữ liệu). So sánh hai đại lượng khác đơn vị như một quy tắc bất biến thì không thể đúng — đổi đơn vị đo (m → cm) là quy tắc đảo chiều. Nên câu này sai **về nguyên tắc**, không chỉ sai ở một khoảng giá trị.
+
+**Hệ quả cho bài làm:** đây là **lỗi sửa câu chữ không cứu được** (R3): nếu AI chỉ nói khéo hơn ("theo tài liệu §3.3 thì…") thì vẫn truyền câu sai. Chỉ thiết kế mới cứu — AI phải có nhánh "tài liệu có thể sai" (badge ⚠ + khối "Vì sao" + [Báo giảng viên]), không chỉ trích dẫn.
+
 ---
 
 ## §3. Khi AI sai
@@ -123,7 +139,7 @@ Nhãn mức hại: **nhẹ** (tự thấy, tự sửa) · **sửa được** (t�
 >
 > 📄 **§3.1:** trung bình = tổng các giá trị chia cho số giá trị. Em đếm lại xem dãy có đúng 8 số, rồi cộng lại một lần nữa.
 >
-> Nếu vẫn lệch, em bấm **[Chuyển TA]** — TA trả lời từ **8h sáng mai**, vẫn kịp trước hạn nộp.
+> Nếu vẫn lệch, em bấm **[Chuyển TA]** — nhưng nói rõ: TA trả lời từ **08:00 sáng 14/11**, tức là **sau hạn nộp 23:59 hôm nay**. Chuyển TA để hiểu bài, **không** để kịp nộp.
 
 **Người dùng thấy gì ngoài câu chữ:**
 - Badge **🔒 Bài đang mở — mình không chấm hộ**
@@ -137,6 +153,8 @@ Nhãn mức hại: **nhẹ** (tự thấy, tự sửa) · **sửa được** (t�
 **Nếu họ không làm gì:** không có gì xảy ra — không tự chuyển TA, không nhắc lại. Học viên tự quyết.
 
 **Ai được báo, sau bao lâu:** chỉ khi học viên bấm gửi — TA thấy trong hàng chờ, trả lời từ 08:00 (giờ TA 08:00–22:00). Học viên thấy mã hàng chờ + giờ dự kiến, **không** thấy câu "đã báo TA" chung chung (chặn KB-11).
+
+**Phép tính hạn nộp — chỗ dễ hứa sai:** kịch bản là **13/11 lúc 22:15**. TA đã hết giờ trực (08:00–22:00), ca kế tiếp là **14/11 08:00**. Hạn bài 3 là **13/11 23:59**. Vậy câu trả lời của TA **tới sau hạn** — AI **không được** nói "sáng mai TA trả lời, vẫn kịp nộp". Đây là dạng *"chờ người cũng là một kiểu sai"* (guide §4.1): chuyển TA giải quyết việc **hiểu bài**, không giải quyết việc **kịp hạn**. Giao diện phải nói đúng cả hai.
 
 **Quyết định: trả lời kèm giới hạn** — đã cân nhắc 3 cách:
 
@@ -307,7 +325,28 @@ Nhờ tách bước, **KB-6 và KB-7 đều bị chặn** — xem 4.3.
 | **Không hiện gì** (AI tự quyết ngầm) | Vi phạm G1/G2 — học viên không biết hệ thống làm được gì, và không có cách nào phản đối |
 | **Mức tự chủ hiện thành *hình dạng của nút*** ✓ | "Tự làm" = AI trả lời ngay, không nút nào. "Cần duyệt" = có nút xác nhận kèm nội dung. "Cấm" = **không tồn tại nút** (không phải nút bị mờ). Học viên không phải hiểu khái niệm "mức tự chủ" — họ chỉ thấy cái gì bấm được |
 
-**Vì sao không làm lời gọi AI thật (+3 bonus):** M3 (bấm qua được ca khó) mới là điều kiện cần; 3 điểm bonus không đáng đánh đổi 25 điểm R5. Nếu còn giờ sau khi M3 đạt thì làm, với key nhập lúc demo và không nằm trong code nộp — nhưng ưu tiên là **bấm qua được ca khó**.
+**Vì sao làm lời gọi AI thật (+3 bonus) — sau khi M3 đã đạt:** vì M3 (bấm qua được ca khó) đã xong trước, nên 3 điểm bonus lúc này là **làm thêm, không đánh đổi**. Nguyên tắc giữ nguyên: **key không nằm trong code nộp**.
+
+### 5.4 Bản có AI thật — `demo/` (bonus +3)
+
+| | `prototype/index.html` | `demo/` |
+|---|---|---|
+| Bản chất | Mock, viết tay, không cần gì | Gọi **OpenRouter** thật (`deepseek/deepseek-v4-flash`) |
+| Mở bằng | Double-click file | `node server.mjs` → http://localhost:3000 (Node 22+) |
+| Dùng để | Demo lạnh, không phụ thuộc mạng/key | Chứng minh thiết kế chạy được với model thật |
+| Nếu hỏng lúc demo | Không hỏng được | Mất mạng/key → quay về bản mock |
+
+**Key xử lý thế nào:** key nằm trong `.env` (đã `.gitignore`, chỉ commit `.env.example` không có key). Server đọc từ biến môi trường, key **không bao giờ** xuống frontend. Log có redaction: `sk-or-v1-…` và `Bearer …` được thay bằng `[REDACTED]` trước khi in.
+
+**Kiểm chứng:** `node --test tests/server.test.mjs` → **10/10 pass**, gồm: session isolation, TA queue đòi xem trước + xác nhận, FAQ không bao giờ tự đăng, thiếu key → lỗi trung thực, chặn auth/CORS/path traversal, **cảnh báo §3.3 luôn bật**, **chặn lộ đáp số bài đang mở**, log redaction.
+
+**System prompt giữ đúng chính sách của §4** (trích nguyên văn vài dòng đáng chú ý):
+
+- *"Bài 3 đang mở suốt kịch bản demo. Không tính hộ, không đưa tổng, kết quả trung gian, đáp số, không xác nhận/phủ nhận đáp số ngay cả khi học viên đưa sẵn, đổi tên bài hoặc bảo đã hết hạn."* → chính là `giai_chi_tiet` = **cấm**
+- *"Bạn KHÔNG thể gửi TA, báo giảng viên, đăng FAQ. Chỉ gợi ý nút. Không nói đã gửi/đã đăng/đã vào hàng chờ nếu chưa có mã trong TRẠNG THÁI HỆ THỐNG."* → chính là luật "không nói đã làm khi chưa làm" (§4.4), chặn KB-11
+- *"Kịch bản 13/11 lúc 22:15: ca tiếp theo 14/11 08:00 SAU hạn 13/11 23:59; không nói sáng mai vẫn kịp hạn."* → chính là phép tính ở §3.2
+
+**Giới hạn đã biết:** model vẫn có thể trả lời sai (prompt không phải bảo đảm); hàng chờ chỉ lưu cục bộ trong `.data/queue.json`, **chưa kết nối TA/giảng viên thật**; hội thoại mất khi restart.
 
 ---
 
