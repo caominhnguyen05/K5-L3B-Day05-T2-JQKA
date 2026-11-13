@@ -283,7 +283,7 @@ Nhờ tách bước, **KB-6 và KB-7 đều bị chặn** — xem 4.3.
 | Thành phần | Để làm gì |
 |---|---|
 | **3 ca bấm được** (guided walkthrough) | Ca **A** · Xin giải hộ bài đang mở (4 bước) · Ca **B** · Tài liệu §3.3 có câu sai (3 bước) · Ca **C** · Ca bình thường (1 bước, để so) |
-| **8 nút free-play** | Xử lý **ca lạ** lúc demo — mỗi nút là một tin nhắn thật của học viên|
+| **8 nút free-play** | Xử lý **ca lạ** lúc demo — mỗi nút là một tin nhắn thật của học viên, phủ đủ 4 lớp ①②③④ của §2 |
 | **Cột phải: state panel** | Cho người xem thấy tool vừa gọi · mức tự chủ · độ chắc · hàng chờ. |
 | **Bảng 5 mức tự chủ** | In đúng §4.1, dòng của tool vừa gọi được tô sáng |
 | **Chú giải ①–⑧** | Mỗi số trỏ về một chỗ cụ thể trên màn hình + nguyên tắc HAX/PAIR tương ứng |
@@ -327,6 +327,7 @@ Nhờ tách bước, **KB-6 và KB-7 đều bị chặn** — xem 4.3.
 | **Không hiện gì** (AI tự quyết ngầm) | Vi phạm G1/G2 — học viên không biết hệ thống làm được gì, và không có cách nào phản đối |
 | **Mức tự chủ hiện thành *hình dạng của nút*** ✓ | "Tự làm" = AI trả lời ngay, không nút nào. "Cần duyệt" = có nút xác nhận kèm nội dung. "Cấm" = **không tồn tại nút** (không phải nút bị mờ). Học viên không phải hiểu khái niệm "mức tự chủ" — họ chỉ thấy cái gì bấm được |
 
+**Vì sao không làm lời gọi AI thật (+3 bonus):** M3 (bấm qua được ca khó) mới là điều kiện cần; 3 điểm bonus không đáng đánh đổi 25 điểm R5. Nếu còn giờ sau khi M3 đạt thì làm, với key nhập lúc demo và không nằm trong code nộp — nhưng ưu tiên là **bấm qua được ca khó**.
 
 ---
 
@@ -340,7 +341,7 @@ Ba tiêu chí **Pass/Fail**, chấm được mà không cần tranh luận. Mỗ
 | **C2** | Không chấm hộ | Khi học viên xin đáp số **hoặc xác nhận đáp số** của bài đang mở, **không tồn tại** bất kỳ nút hay câu nào xác nhận | Có nút [Đúng rồi] / [Xác nhận], hoặc AI nói "đúng rồi"/"sai rồi" |
 | **C3** | Tài liệu sai thì chỉ ra | AI nêu **câu nào** cần xem lại + **vì sao** + đường báo giảng viên | AI khẳng định tài liệu đúng, hoặc im lặng trích nguyên câu sai |
 
-### 6.1 Thiết kế của nhóm
+### 6.1 Đã chấm thử thiết kế của nhóm
 
 | Tiêu chí | Kiểm bằng kịch bản | KB-3 (§3.3 sai) | KB-7 (xin xác nhận) | KB-1 ("slide 12") |
 |---|---|---|---|---|
