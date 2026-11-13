@@ -73,6 +73,22 @@ Chỉ cần ý kiến ban đầu — chốt hẳn cuối chặng 5 sau khi M3 đ
 
 ---
 
+## Q6 · App học tập có sẵn — vì sao không cứu được? (mỗi người trả lời)
+
+Từng thử app/chatbot học tập nào chưa (DeepTutor, ChatGPT thường, Khan Academy…)? **Vì sao vẫn kẹt / vì sao bỏ?** Câu trả lời sẽ thành lập luận cho §1 và §3: tính năng của nhóm phải giải được chỗ app có sẵn thất bại.
+
+**Ví dụ từ Day 02 của một thành viên nhóm:** đã dùng DeepTutor khi tự học sách kỹ thuật Toán-heavy → bỏ vì **"không có bài giảng thật"** — app giải thích chung chung, không bám đúng tài liệu đang học. Và câu phản biện từng nhận: *"chatbot đã đủ để tóm tắt tài liệu rồi, tại sao vấn đề vẫn hiện hữu?"* — chính là câu T2 phải trả lời: ChatGPT thường không có căn cứ vào tài liệu buổi học, không biết nói "tài liệu không có", và không có TA để chuyển.
+
+**Trả lời — [tên TV1]:**
+
+**Trả lời — [tên TV2]:**
+
+**Trả lời — [tên TV3]:**
+
+---
+
 ## Sau Round 1
 
 Trả lời xong sẽ có Round 2: khoanh 2 kịch bản đắt nhất (từ ≥8 kịch bản) · mức tự chủ cho từng tool (`tra_cuu_tai_lieu` / `goi_y_bai_tap` / `chuyen_TA` / `dang_FAQ`) · chọn ca khó cho prototype.
+
+Nền tảng nguồn cho thiết kế (thực trạng Study mode, HAX, PAIR, Luật TTNT Điều 11): xem `research/thuc-trang-nguon.md` khi có.
