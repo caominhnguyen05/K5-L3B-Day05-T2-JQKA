@@ -56,8 +56,7 @@ Từ các đề xuất ở Round 1, mỗi người **bình chọn 3** (ghi số 
 5. Không hứa việc không làm được ("đã báo TA")
 6. Không tự nạp thông tin ngoài tài liệu khoá học
 
-**Bình chọn — Phạm Hoàng Đức Minh:**
-
+**Bình chọn — Phạm Hoàng Đức Minh:** 1 2 4
 **Bình chọn — TV2:**
 
 **Bình chọn — MinhTDN:**
@@ -90,6 +89,10 @@ Guide §4.3: *"Mỗi người tự xếp mức cho mọi tool trước, không b
 | `dang_FAQ` | Đăng câu hỏi + trả lời vào FAQ cả lớp | Gỡ được, nhưng nhiều người đã đọc |
 
 **Pre-vote — Phạm Hoàng Đức Minh:**
+- `tra_cuu_tai_lieu`: **tự làm** — chỉ đọc, đảo lại hoàn toàn; nếu trích sai mục, học viên kiểm được ngay vì hiển thị mã mục (đây chính là lý do bằng chứng phải hiện trên màn hình).
+- `goi_y_bai_tap`: **tự làm kèm luật chặt** (chỉ gợi ý bước đầu của bài đang mở, không bao giờ đưa/xác nhận đáp số)
+- `chuyen_TA`: **tự làm** — đảo lại được (TA nhận câu hỏi thừa thì rẻ); kèm ràng buộc hiển thị: phải cho thấy câu đã vào hàng chờ + giờ TA trả lời, không bao giờ nói "đã báo TA" khi chưa gửi (lỗi HAX #7 của rubric riêng).
+- `dang_FAQ`: **cần người duyệt (TA/giảng viên)** — một câu sai đăng lên FAQ cả lớp thì nhiều người đã đọc, cái sai lan theo cấp số nhân; chờ duyệt không mất gì vì FAQ không phải việc gấp lúc 10h tối.
 
 **Pre-vote — TV2:**
 
@@ -114,7 +117,7 @@ Demo bắt buộc của track: bấm qua một ca **"bài đang mở hoặc tài
 
 **Ý kiến — Nguyễn Văn Minh (TV4):** ca **A** — nó căng nhất vì chạm đồng thời 3 ranh giới: thẩm quyền (không được giải hộ), giá trị cốt lõi (phải vẫn hữu ích, không đuổi user đi), và mức tự chủ (`goi_y_bai_tap` đúng lúc cần luật "chỉ bước đầu"). Ca B làm kịch bản đắt thứ hai trong spec; C, D để free-play lúc demo xử lý ca lạ.
 
-**Ý kiến — Phạm Hoàng Đức Minh:**
+**Ý kiến — Phạm Hoàng Đức Minh:** ca A (phải vẫn hữu ích, không đuổi user đi)
 
 **Ý kiến — TV2:**
 
