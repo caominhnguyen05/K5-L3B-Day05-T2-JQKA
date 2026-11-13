@@ -92,8 +92,8 @@ Ba vai cần người ngay từ đầu (xem README, không bắt buộc đúng t
 
 - TV1:
 - Phạm Hoàng Đức Minh : Viết câu chữ AI
-- Trần Đình Nhật Minh: bảng kịch bản §2
-- TV3:
+- TV2:
+- Trần Đình Nhật Minh : bảng kịch bản §2
 - Nguyễn Văn Minh (TV4): **dựng prototype.** Lý do: mình làm việc thường xuyên với coding agent (pi), đã có sẵn quy trình dựng prototype HTML tự chứa bấm được (guided walkthrough cho ca khó + free-play cho ca lạ) — ngày lab chỉ cần đổ nội dung nhóm chốt vào. Cam kết: mỗi chỗ trên prototype mình đều giải thích được vì sao nó ở đó (vibe-coding rule).
 
 ---
@@ -129,12 +129,15 @@ Từng thử app/chatbot học tập nào chưa (DeepTutor, ChatGPT thường, K
 
 **Ví dụ từ Day 02 của một thành viên nhóm:** đã dùng DeepTutor khi tự học sách kỹ thuật Toán-heavy → bỏ vì **"không có bài giảng thật"** — app giải thích chung chung, không bám đúng tài liệu đang học. Và câu phản biện từng nhận: _"chatbot đã đủ để tóm tắt tài liệu rồi, tại sao vấn đề vẫn hiện hữu?"_ — chính là câu T2 phải trả lời: ChatGPT thường không có căn cứ vào tài liệu buổi học, không biết nói "tài liệu không có", và không có TA để chuyển.
 
-**Trả lời — [TDN Minh]:** Đã dùng NotebookLM và Chatgpt study mode NotebookLM: Có thể tóm tắt, giải thích và trả lời dựa trên tài liệu được tải lên, kèm trích dẫn nguồn. Tuy nhiên, người dùng phải tự tải lên và quản lý tài liệu, chưa tích hợp trực tiếp với hệ thống khóa học.ChatGPT Study Mode: Có thể hướng dẫn từng bước, đặt câu hỏi và kiểm tra mức độ hiểu bài. Tuy nhiên, câu trả lời vẫn có thể sai hoặc chưa bám sát hoàn toàn nội dung tài liệu chính thức.
+**Trả lời — [Phạm Hoàng Đức Minh]:** Mình nghĩ tới **NotebookLM**: trả lời dựa trên nguồn mình tải lên và có trích dẫn kèm theo, nên đã khắc phục được lỗi "chung chung, không bám tài liệu" của ChatGPT thường. Nhưng vẫn không cứu được lát cắt của nhóm vì:
+- **Học viên phải tự tải tài liệu lên và tự dựng notebook** cho từng môn/buổi. Lúc 10h tối đang kẹt bài thì đây là thêm việc, không bớt việc. NotebookLM cũng không biết đây là buổi 1–3 của lớp nào, buổi 4–10 chưa học.
+- **Không có đường chuyển người thật.** Khi tài liệu không có câu trả lời, nó không có bước "tài liệu không có, hỏi giảng viên/TA" và không có nút `chuyen_TA` hay giờ TA. Học viên vẫn tự xoay xở một mình.
+**Bài học cho thiết kế:** giữ điểm mạnh của NotebookLM là *trả lời bám nguồn + trích mục* nhưng bổ sung 3 thứ nó thiếu: (1) tài liệu **có sẵn theo lớp**, học viên không phải tải lên; (2) nói thẳng **"tài liệu không có, hỏi giảng viên"** và chuyển TA đúng giờ. Phản biện "chatbot/NotebookLM đã đủ rồi" → trả lời: nó trả lời được *khi đã có tài liệu đúng*, còn chỗ học viên kẹt là *khi tài liệu không có hoặc không được phép trả lời*.
 
 **Trả lời — [tên TV2]:**
 Đã dùng ChatGPT và Gemini để giúp giải các bài toán Calculus cấp 3. Vẫn kẹt vì ChatGPT trả lời đúng nhưng dùng các công thức hoặc kiến thức chưa được học trong chương trình, dẫn đến không hiểu cách làm. ChatGPT/Gemini khi được hỏi giải bài chỉ đưa luôn ra đáp án/cách giải chứ không đưa ra các gợi ý/câu hỏi cho học viên để tự suy nghĩ tiếp và giải.
 
-**Trả lời — [tên TV3]:**
+**Trả lời — [TDN Minh]:** Đã dùng NotebookLM và Chatgpt study mode NotebookLM: Có thể tóm tắt, giải thích và trả lời dựa trên tài liệu được tải lên, kèm trích dẫn nguồn. Tuy nhiên, người dùng phải tự tải lên và quản lý tài liệu, chưa tích hợp trực tiếp với hệ thống khóa học.ChatGPT Study Mode: Có thể hướng dẫn từng bước, đặt câu hỏi và kiểm tra mức độ hiểu bài. Tuy nhiên, câu trả lời vẫn có thể sai hoặc chưa bám sát hoàn toàn nội dung tài liệu chính thức.
 
 **Trả lời — Nguyễn Văn Minh (TV4):** Đã thử **DeepTutor** (app học tập có sẵn) khi tự học sách kỹ thuật Toán-heavy — **bỏ vì "không có bài giảng thật"**: giải thích chung chung, không bám đúng tài liệu mình đang học. ChatGPT thường cũng vậy: trả lời không dẫn nguồn vào tài liệu buổi học, mình không có cách kiểm nó bịa chỗ nào. Câu phản biện từng nhận ở Day 02 (_"chatbot đã đủ để tóm tắt tài liệu rồi, tại sao vấn đề vẫn hiện hữu?"_) — câu trả lời chính là lý do tồn tại của T2: ChatGPT không có căn cứ vào tài liệu buổi 3, không biết nói "tài liệu không có", và không có TA để chuyển. **Bài học cho thiết kế:** mỗi câu giảng phải trích kèm mã mục (§3.2…) để học viên kiểm được — hiển thị bằng chứng trên prototype là bắt buộc, không phải trang trí.
 
