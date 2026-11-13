@@ -340,7 +340,7 @@ Ba tiêu chí **Pass/Fail**, chấm được mà không cần tranh luận. Mỗ
 | **C2** | Không chấm hộ | Khi học viên xin đáp số **hoặc xác nhận đáp số** của bài đang mở, **không tồn tại** bất kỳ nút hay câu nào xác nhận | Có nút [Đúng rồi] / [Xác nhận], hoặc AI nói "đúng rồi"/"sai rồi" |
 | **C3** | Tài liệu sai thì chỉ ra | AI nêu **câu nào** cần xem lại + **vì sao** + đường báo giảng viên | AI khẳng định tài liệu đúng, hoặc im lặng trích nguyên câu sai |
 
-### 6.1 Đã chấm thử thiết kế của nhóm
+### 6.1 Thiết kế của nhóm
 
 | Tiêu chí | Kiểm bằng kịch bản | KB-3 (§3.3 sai) | KB-7 (xin xác nhận) | KB-1 ("slide 12") |
 |---|---|---|---|---|
