@@ -41,7 +41,7 @@ Các đề xuất trùng nhau nhiều: **không đưa/xác nhận đáp số bà
 
 Lát cắt phát sẵn đặt actor là **học viên** (người kẹt bài lúc tối muộn, không còn ai để hỏi). Viết lại câu một lát cắt của bạn theo đúng actor — hoặc, nếu bạn vẫn cho rằng giảng viên mới là người dùng xứng đáng của tính năng, viết lý do để cả nhóm bàn (đây là câu hỏi chấm được: đề nói "không chọn lại").
 
-**Trả lời — MinhTDN:**
+**Trả lời — MinhTDN:**Khi học viên làm bài hay học bài buổi tối muộn và muốn hỏi bài nhưng không còn ai để hỏi. Thay vì phải tự tìm kiếm trong tài liệu thì AI quyết: Giảng kèm trích tài liệu / hỏi lại cho rõ đúng không / gợi ý tựng bước / nếu không có tài liệu nói " Tài liệu không có, hỏi giảng viên". - Nếu sai thì học viên học sai đi mà không biết.
 
 ---
 
@@ -60,12 +60,12 @@ Từ các đề xuất ở Round 1, mỗi người **bình chọn 3** (ghi số 
 
 **Bình chọn — TV2:**
 
-**Bình chọn — MinhTDN:**
+**Bình chọn — MinhTDN:** 1 2 4
 
 **Bình chọn — Nguyễn Văn Minh (TV4):** 1 · 3 · 2 — (1) là cái giá đắt nhất của domain (chép đáp án sai, âm thầm); (3) là lớp ① bịa nguồn sự thật, dữ liệu chỉ có buổi 1–3; (2) là lỗi niềm tin không đảo lại được với học viên đang tự hoài nghi lúc 10h tối. (4)(5) sẽ nằm trong câu chữ §3 như ràng buộc hành vi, không cần tách thành "tính năng không làm".
 
 **Chốt của nhóm:**
-
+1 2 4
 ---
 
 ## Q9 · Vai (c) — bảng kịch bản §2 + chuẩn bị demo: ai nhận?
@@ -74,7 +74,7 @@ Hai vai đã có người: prototype (TV4) · câu chữ AI (Đức Minh). Còn 
 
 **Trả lời — TV2:**
 
-**Trả lời — MinhTDN:**
+**Trả lời — MinhTDN:** **bảng kịch bản §2**
 
 ---
 
@@ -89,11 +89,15 @@ Guide §4.3: *"Mỗi người tự xếp mức cho mọi tool trước, không b
 | `chuyen_TA` | Chuyển câu hỏi cho TA, báo giờ TA trả lời | Được |
 | `dang_FAQ` | Đăng câu hỏi + trả lời vào FAQ cả lớp | Gỡ được, nhưng nhiều người đã đọc |
 
-**Pre-vote — Phạm Hoàng Đức Minh:**
+**Pre-vote — Phạm Hoàng Đức Minh:** 
 
 **Pre-vote — TV2:**
 
-**Pre-vote — MinhTDN:**
+**Pre-vote — MinhTDN:** 
+- `tra_cuu_tai_lieu`: **tự làm** — chỉ đọc, đảo lại hoàn toàn; nếu trích sai mục, học viên kiểm được ngay vì hiển thị mã mục .
+- `goi_y_bai_tap`: **Cần người duyệt** Gửi gợi ý làm bài cho một học viên. hoàn toàn đảo lại được, Gợi ý sai hoặc quá chi tiết có thể khiến học viên hiểu sai hoặc mất cơ hội tự giải bài; giảng viên duyệt trước sẽ giảm rủi ro, dù có thể làm chậm phản hồi.
+- `chuyen_TA`: **tự làm** — Chuyển câu hỏi cho TA, báo giờ TA trả lời, Có thể hủy hoặc cập nhật, Chuyển nhầm có thể sửa hoặc chuyển lại; nếu bắt giảng viên duyệt từng yêu cầu thì học viên phải chờ lâu, làm mất giá trị hỗ trợ kịp thời.
+- `dang_FAQ`: **cần người duyệt (TA/giảng viên)** — một câu sai đăng lên FAQ cả lớp thì nhiều người đã đọc, cái sai lan theo cấp số nhân; chờ duyệt không mất gì vì FAQ không phải việc gấp lúc 10h tối. Quá hạn không ai duyệt → không đăng, trả lời riêng cho người hỏi.
 
 **Pre-vote — Nguyễn Văn Minh (TV4):**
 - `tra_cuu_tai_lieu`: **tự làm** — chỉ đọc, đảo lại hoàn toàn; nếu trích sai mục, học viên kiểm được ngay vì hiển thị mã mục (đây chính là lý do bằng chứng phải hiện trên màn hình).
