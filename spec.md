@@ -2,8 +2,8 @@
 
 | Họ và Tên | Mã Học Viên | Việc đã làm |
 |---|---|---|
-| Phạm Hoàng Đức Minh | | Câu chữ AI (§3) — viết câu nguyên văn cho 2 kịch bản đắt nhất |
-| Nguyễn Cao Minh | | Bảng kịch bản rủi ro (§2) + chuẩn bị kịch bản demo |
+| Phạm Hoàng Đức Minh | 2A202604114 | Câu chữ AI (§3) — viết câu nguyên văn cho 2 kịch bản đắt nhất |
+| Nguyễn Cao Minh | 2A202604099 | Bảng kịch bản rủi ro (§2) + chuẩn bị kịch bản demo |
 | Trần Đình Nhật Minh |2A202604083| Bảng kịch bản rủi ro (§2) + phụ demo |
 | Nguyễn Văn Minh | 2A202604117 | Prototype (§5) — dựng 1 file HTML bấm được, 2 tab ca khó |
 
